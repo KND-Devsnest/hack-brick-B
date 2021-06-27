@@ -104,7 +104,9 @@ body {
   margin-right: 20px;
   width: 30vh;
   height: 20vh;
-  background-color: teal;
+  background: #ffeecd;
+  border: 10px solid #c5b494;
+  border-radius: 15px;
 }
 
 .labl {
@@ -119,11 +121,9 @@ body {
 .labl > input + div {
   /* DIV STYLES */
   cursor: pointer;
-  border: 2px solid transparent;
 }
 .labl > input:checked + div {
   /* (RADIO CHECKED) DIV STYLES */
-  background-color: #ffd6bb;
-  border: 1px solid #ff6600;
+  background: #dfd0b3;
 }
 /* Home styles */
