@@ -4,8 +4,8 @@ class Ball{
         this.color = color;
         this.x = startX;
         this.y = startY;
-        this.xSpeed = 2;
-        this.ySpeed = 4.8;
+        this.xSpeed = 2;//2
+        this.ySpeed = -8;//4.8
 
     }
 
@@ -34,6 +34,7 @@ class Ball{
             this.y + this.radius <= paddle.y + paddle.height
         ){
             this.ySpeed = -this.ySpeed;
+            playPaddleHit();
         }
     }
 }
