@@ -1,5 +1,8 @@
 let powerUps = ["paddleIncrease", "paddleDecrease", "goThrough", "powerBall"];
 let powerCount = 5;
+let bg1 = new Image();
+let bg2 = new Image();
+let bg3 = new Image();
 
 class Brick {
   constructor(x, y, width, height, ctx, type) {
@@ -13,10 +16,11 @@ class Brick {
     this.score = brickTypes[type]["score"];
     this.color = brickTypes[type]["color"];
     this.powerType = (function () {
-      if(powerCount > 0 && Math.random()-0.5 > 0) {//Provide   a powerUp
-         --powerCount;
-         return powerUps[Math.floor(Math.random()*4)];
-       }
+      if (powerCount > 0 && Math.random() - 0.5 > 0) {
+        //Provide   a powerUp
+        --powerCount;
+        return powerUps[Math.floor(Math.random() * 4)];
+      }
       // Else return
       return null;
       //return powerUps[3];
@@ -59,22 +63,18 @@ const brickTypes = {
     color: "brown",
     score: 1,
     hits: 1,
-      var bg = new Image();
-      bg.src = "./images/texture/wood.png";
-    },
+    src: "./images/texture/wood.png",
   },
   rock: {
     color: "gray",
     score: 2,
     hits: 3,
-      var bg = new Image();
-      bg.src = "./images/texture/stone.png";
+    src: "./images/texture/stone.png",
   },
   iron: {
     color: "silver",
     score: 3,
     hits: 4,
-      var bg = new Image()
-      bg.src = "./images/texture/iron.png";
+    src: "./images/texture/iron.png",
   },
 };
