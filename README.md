@@ -4,3 +4,7 @@
 
 ### Table-Of-Contents :
 
+[Description](#description)  
+[How to Play](#Play)
+
+
