@@ -10,17 +10,15 @@ class Paddle {
     }
 
     render(pos) {
- 
         // move paddle on mouse change -> access pos variable
         let paddleXPos = pos - Math.floor(this.width/2);
         if(paddleXPos < 0)
             this.x = 0;
-        else if(paddleXPos + this.width > canvas.width - Math.floor(this.width/2)){
-            this.x = canvas.width - Math.floor(this.width-1);
-        }
-            
-        else
+        else if(paddleXPos + this.width > canvas.width) {
+            this.x = canvas.width - this.width;
+        } else {
             this.x = paddleXPos;
+        }
 
         this.ctx.beginPath();
 
