@@ -9,7 +9,7 @@ class Paddle {
         this.y = 450;
     }
 
-    render(pos) {
+    render(pos, ctx) {
         // move paddle on mouse change -> access pos variable
         let paddleXPos = pos - Math.floor(this.width/2);
         if(paddleXPos < 0)
@@ -20,10 +20,21 @@ class Paddle {
             this.x = paddleXPos;
         }
 
-        this.ctx.beginPath();
+        ctx.beginPath();
 
-        this.ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle
-        this.ctx.fillStyle = 'black';
-        this.ctx.fill();
+        ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle
+        ctx.fillStyle = "black";
+        ctx.fill();
+    }
+
+    increase(){
+        this.width += 30;
+        console.log(this.width)
+        setTimeout(() => {this.width -= 30}, 10000)
+    }
+
+    decrease(){
+        this.width -= 30;
+        setTimeout(() => {this.width += 30}, 10000)
     }
 }

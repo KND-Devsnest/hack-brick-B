@@ -19,7 +19,6 @@ const pauseBackgroundMusic = () => {
 const playPaddleHit = () => {
   fx.muted = false;
   fx.play();
-  console.log("Playing");
 };
 
 const playLevelComplete = () => {
