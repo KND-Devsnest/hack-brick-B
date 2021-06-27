@@ -15,7 +15,12 @@
     <style></style>
   </head>
   <body class="main">
-    <main class="game-screen">
+      <div class="volumewrapper">
+      <div class="volume">
+        <div class="mute">🎵</div>
+        <div class="unmute"></div>
+      </div>
+    </div>
       <div class="game-container">
         <canvas
           id="main"
@@ -31,18 +36,17 @@
         </div>
         <div class="exit-btn"><a href="./home.html"><p class="exit-text"><-Exit!</p></div></a>
       </div>
-    </main>
     <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-
     <script src="./paddle.js"></script>
     <script src="./ball.js"></script>
     <script src="./brick.js"></script>
     <script src="./levels.js"></script>
     <script src="index.js"></script>
+    <script src="effects.js"></script>
   </body>
 </html>

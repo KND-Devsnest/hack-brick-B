@@ -1,7 +1,5 @@
 let x = 250;
 let y = 400;
-/*let x = 400;
-let y = 100;*/
 let pos = 20; // x position of mouse
 const scoreField = document.getElementById('score');
 const canvas = document.getElementById("main");
@@ -19,11 +17,16 @@ let totalBricks = bricks.length;
 
 let totalScore = 0;
 
+setTimeout(() => {playBackroundMusic()}, 200);
+
 const draw = (evt) => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if(totalBricks == 0){
     console.log("Khatam");
+    pauseBackgroundMusic();
+    playLevelComplete();
+    clearInterval(game);
     return; 
   }
   
@@ -56,7 +59,7 @@ const draw = (evt) => {
   scoreField.innerHTML = "Score :" + totalScore;
 }
 
-setInterval(() => {
+const game = setInterval(() => {
   draw();
 }, 20);
 
@@ -66,10 +69,5 @@ canvas.addEventListener("mousemove", (e) => {
 
 function drawBricks(current_level){
   let bricks = level[current_level].getBricks();
-
-  /*  for (let i = 0; i < 10; i++) {
-    bricks.push(new Brick(i * 50, 150, 50, 25, ctx, 'normal'));
-  }
-*/
   return bricks;
 }
