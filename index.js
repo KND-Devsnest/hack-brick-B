@@ -8,13 +8,14 @@ const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
-const currentLevels = 5;
+const currentLevels = 1;
 const bricks = drawBricks(current_level);
 let gameStatus = "Playing"
 const powerUpBalls = [];
 
 const canvasBoundRect = canvas.getBoundingClientRect();
 
+console.log(bricks)
 let totalBricks = bricks.length;
 
 let totalScore = 0;
