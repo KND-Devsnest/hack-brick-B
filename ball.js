@@ -4,7 +4,7 @@ class Ball{
         this.color = color;
         this.x = startX;
         this.y = startY;
-        this.xSpeed = 1;
+        this.xSpeed = 0;
         this.ySpeed = 2.8;
 
     }

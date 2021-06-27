@@ -4,14 +4,35 @@ let xspeed = 1;
 let yspeed = 2.8;
 let pos = 20; // x position of mouse
 const canvas = document.getElementById("main");
-const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
+//const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
+const bricks = drawBricks();
 
 const draw = (evt) => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBoard();
+  
+  for(let i in bricks){
+    if (bricks[i] !== 0){
+      
+      bricks[i].render();
+      let collision = bricks[i].checkCollision(ball);
+      if (collision != null){
+        bricks[i] = 0;
+        console.log(ball.xSpeed, ball.ySpeed)
+        if(collision === 'down' && ball.ySpeed < 0) {
+          ball.ySpeed *= -1;
+        } else if(collision === 'up' && ball.ySpeed > 0) {
+          ball.ySpeed *= -1;
+        } else if(collision === 'right' && ball.xSpeed < 0) {
+          ball.xSpeed *= -1;
+        } else if(collision === 'left' && ball.xSpeed > 0) {
+          ball.xSpeed *= -1;
+        }
+      }
+    }
+  }
 
   x += xspeed;
   y += yspeed;
@@ -22,6 +43,8 @@ const draw = (evt) => {
 
   paddle.render(pos);
   ball.changeDirection();
+
+  
   
   // if (x > canvas.width || x < 0) {
   //   xspeed = xspeed * -1;
@@ -42,12 +65,12 @@ canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX;
 });
 
-function drawBoard() {
-  for (let i of level1) {
-    ctx.beginPath();
-    ctx.rect(i, 30, 50, 10);
-    ctx.stroke();
+function drawBricks(){
+  let bricks = []
+  for (let i = 0; i < 10; i++) {
+    bricks.push(new Brick(i * 50, 30, 50, 25, ctx));
   }
+  return bricks;
 }
 
 function checkCollision() {}
