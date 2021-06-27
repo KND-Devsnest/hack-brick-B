@@ -25,3 +25,14 @@ slider.addEventListener("mousemove", (e) => {
 slider.addEventListener("mousedown", startDragging, false);
 slider.addEventListener("mouseup", stopDragging, false);
 slider.addEventListener("mouseleave", stopDragging, false);
+
+// Scroll arrows
+const buttonRight = document.querySelector(".right");
+const buttonLeft = document.querySelector(".left");
+
+buttonRight.onclick = function () {
+  document.querySelector(".level-container").scrollLeft += 150;
+};
+buttonLeft.onclick = function () {
+  document.querySelector(".level-container").scrollLeft -= 150;
+};
