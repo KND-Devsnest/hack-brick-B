@@ -19,8 +19,8 @@ class Paddle {
         let paddleXPos = pos - Math.floor(this.width/2);
         if(paddleXPos < 0)
             this.x = 0;
-        else if(paddleXPos > canvas.width)
-            this.x = canvas.width- Math.floor(this.width/2);
+        else if(paddleXPos + this.width > canvas.width)
+            this.x = canvas.width- Math.floor(this.width);
         else
             this.x = paddleXPos;
 
