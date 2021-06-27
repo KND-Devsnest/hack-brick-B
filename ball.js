@@ -34,6 +34,7 @@ class Ball{
             this.y + this.radius <= paddle.y + paddle.height
         ){
             this.ySpeed = -this.ySpeed;
+            playPaddleHit();
         }
     }
 }

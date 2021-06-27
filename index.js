@@ -16,12 +16,17 @@ let totalBricks = bricks.length;
 
 let totalScore = 0;
 
+setTimeout(() => {playBackroundMusic()}, 200);
+
 
 const draw = (evt) => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if(totalBricks == 0){
     console.log("Khatam");
+    pauseBackgroundMusic();
+    playLevelComplete();
+    clearInterval(game);
     return; 
   }
   
@@ -55,13 +60,12 @@ const draw = (evt) => {
   scoreField.innerHTML = "Score :" + totalScore;
 }
 
-setInterval(() => {
+const game = setInterval(() => {
   draw();
 }, 20);
 
 canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX - canvasBoundRect.x;
-  console.log(e);
 });
 
 function drawBricks(){
