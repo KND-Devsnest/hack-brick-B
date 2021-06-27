@@ -36,3 +36,5 @@ buttonRight.onclick = function () {
 buttonLeft.onclick = function () {
   document.querySelector(".level-container").scrollLeft -= 150;
 };
+
+//Scroll key
