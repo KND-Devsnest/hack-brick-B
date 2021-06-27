@@ -56,7 +56,7 @@ const draw = (evt) => {
   ball.render(ctx);
   paddle.render(pos);
   ball.changeDirection(paddle);
-  scoreField.innerHTML = "Score :" + totalScore;
+  scoreField.innerHTML = totalScore;
 }
 
 const game = setInterval(() => {

@@ -1,9 +1,21 @@
 
+
+const volumeDiv = document.querySelector('.volume');
+const muteDiv = document.querySelector('.unmute');
+
+volumeDiv.addEventListener('click', () => {
+    muteDiv.classList.toggle('hidden');
+    if(bgm.paused)
+        bgm.play();
+    else
+        bgm.pause();
+})
+
 const fx = new Audio('./sounds/gameSounds/paddleHit.wav');
 fx.autoplay = true;
 fx.muted = true;
 
-const bgm = new Audio('./sounds/gameSounds/Bloom.mp3');
+const bgm = new Audio(document.title == "Home" ? './sounds/gameSounds/Bloom.mp3' : './sounds/gameSounds/Bloom.mp3');
 bgm.autoplay = true;
 bgm.muted = true;
 
@@ -42,5 +54,3 @@ const pressButton = () => {
     fx.src = "./sounds/uiSounds/button.mp3";
     fx.play();
 }
-
-
