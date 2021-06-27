@@ -7,6 +7,7 @@
   font-family: "Indie Flower", cursive;
   user-select: none;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 /* <div class="lvl-preview"></div>
@@ -62,6 +63,35 @@
   padding-left: 30px;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
   font-size: 20px;
+}
+
+.volume {
+  position: absolute;
+  left: 95%;
+  top: 2%;
+  font-size: 30px;
+}
+.unmute {
+  position: absolute;
+  height: 30px;
+  width: 2px;
+  background-color: rgb(216, 20, 20);
+}
+.right {
+  position: sticky;
+  height: 3vh;
+  width: 30px;
+  z-index: 1;
+  right: 0;
+}
+
+.left {
+  position: sticky;
+  height: 3vh;
+  width: 30px;
+  z-index: 1;
+  left: 0;
+  transform: rotateY(180deg);
 }
 
 .start-game-btn {
