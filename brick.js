@@ -13,12 +13,13 @@ class Brick {
     this.score = brickTypes[type]["score"];
     this.color = brickTypes[type]["color"];
     this.powerType = (function () {
-      // if(powerCount > 0 && Math.random()-0.5 > 0) {//Provide   a powerUp
-      //    --powerCount;
-      //    return powerUps[Math.floor(Math.random()*4)];
-      //  }
+      if(powerCount > 0 && Math.random()-0.5 > 0) {//Provide   a powerUp
+         --powerCount;
+         return powerUps[Math.floor(Math.random()*4)];
+       }
       // Else return
-      return powerUps[3];
+      return null;
+      //return powerUps[3];
     })();
   }
 

@@ -10,7 +10,7 @@ const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
 const currentLevels = 5;
 const bricks = drawBricks(current_level);
-
+let gameStatus = "Playing"
 const powerUpBalls = [];
 
 const canvasBoundRect = canvas.getBoundingClientRect();
@@ -25,7 +25,7 @@ setTimeout(() => {
 
 let game;
 canvas.addEventListener('click', ()=>{
-  setInterval(() => {draw()}, 20);
+  game = setInterval(() => {draw()}, 20);
 })
 
 draw();
@@ -33,11 +33,13 @@ draw();
 function draw (evt){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (totalBricks == 0) {
+  if (totalBricks == 0 || gameStatus === "Game Over") {
     console.log("Khatam");
     pauseBackgroundMusic();
     playLevelComplete();
     clearInterval(game);
+    ctx.font = '48px sans-serif';
+    ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250)
     return;
   }
 

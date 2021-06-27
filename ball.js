@@ -33,6 +33,11 @@ class Ball{
         if(this.y - this.radius < 0){
             this.ySpeed = -this.ySpeed;
         }
+
+        if(this.y > 500 && this.powerUp == undefined){
+            gameStatus = "Game Over";
+        }
+
         if (
             this.x + this.radius >= pos - Math.floor(paddle.width/2) &&
             this.x - this.radius <= pos + Math.floor(paddle.width/2) &&
