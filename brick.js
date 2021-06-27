@@ -1,3 +1,6 @@
+let powerUps = ["paddleIncrease", "paddleDecrease", "Gothrough", "BowerBall"]
+let powerCount = 5;
+
 class Brick{
     constructor(x, y, width, height, ctx, type){
         this.x = x;
@@ -9,6 +12,14 @@ class Brick{
         this.hit = brickTypes[type]['hits']
         this.score = brickTypes[type]['score']
         this.color = brickTypes[type]['color']
+        this.powerType = () => {
+            if(powerCount > 0 && Math.random()-0.5 > 0) {//Provide a powerUp
+                --powerCount;
+                return powerUps[Math.floor(Math.random()*4)];
+            }
+            // Else return 
+            return null;
+        };
     }
 
     render(){

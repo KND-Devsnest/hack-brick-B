@@ -1,11 +1,12 @@
 class Ball{
-    constructor(radius, color, startX, startY){
+    constructor(radius, color, startX, startY, powerUp){
         this.radius = radius;
         this.color = color;
         this.x = startX;
         this.y = startY;
         this.xSpeed = 2;//2
         this.ySpeed = -8;//4.8
+        this.powerUp = powerUp
 
     }
 
@@ -33,8 +34,13 @@ class Ball{
             this.y + this.radius >= paddle.y &&
             this.y + this.radius <= paddle.y + paddle.height
         ){
-            this.ySpeed = -this.ySpeed;
             playPaddleHit();
+            if (this.isPowerUp){
+
+            }
+            this.ySpeed = -this.ySpeed;
+            
         }
     }
 }
+
