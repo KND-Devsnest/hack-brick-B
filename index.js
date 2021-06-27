@@ -3,7 +3,7 @@ let y = 400;
 let pos = 20; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
-let current_level = 5;
+let current_level = 1;
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
@@ -19,17 +19,17 @@ let totalBricks = bricks.length;
 
 let totalScore = 0;
 
-setTimeout(() => {
-  playBackroundMusic();
-}, 200);
+// setTimeout(() => {
+//   playBackroundMusic();
+// }, 200);
 
 const draw = (evt) => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0) {
     console.log("Khatam");
-    pauseBackgroundMusic();
-    playLevelComplete();
+    // pauseBackgroundMusic();
+    // playLevelComplete();
     clearInterval(game);
     return;
   }

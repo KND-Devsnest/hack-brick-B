@@ -54,7 +54,40 @@ class Brick {
 }
 
 const brickTypes = {
-  wood: { color: "brown", score: 1, hits: 1 },
-  rock: { color: "gray", score: 2, hits: 3 },
-  iron: { color: "silver", score: 3, hits: 4 },
+  wood: {
+    color: "brown",
+    score: 1,
+    hits: 1,
+    background: () => {
+      var bg = new Image();
+      bg.src = "./images/texture/wood.png";
+      bg.onload = function () {
+        this.drawImage(bg, 0, 0);
+      };
+    },
+  },
+  rock: {
+    color: "gray",
+    score: 2,
+    hits: 3,
+    background: () => {
+      var bg = new Image();
+      bg.src = "./images/texture/stone.png";
+      bg.onload = function () {
+        ctx.drawImage(bg, 0, 0);
+      };
+    },
+  },
+  iron: {
+    color: "silver",
+    score: 3,
+    hits: 4,
+    background: () => {
+      var bg = new Image();
+      bg.src = "./images/texture/iron.png";
+      bg.onload = function () {
+        ctx.drawImage(bg, 0, 0);
+      };
+    },
+  },
 };
