@@ -1,6 +1,6 @@
 let x = 250;
 let y = 400;
-let pos = 20; // x position of mouse
+let pos = 250; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
 let current_level = 5;
@@ -23,7 +23,14 @@ setTimeout(() => {
   playBackroundMusic();
 }, 200);
 
-const draw = (evt) => {
+let game;
+canvas.addEventListener('click', ()=>{
+  setInterval(() => {draw()}, 20);
+})
+
+draw();
+
+function draw (evt){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0) {
