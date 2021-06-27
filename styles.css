@@ -1,0 +1,66 @@
+/* Home styles */
+* {
+  margin: 0;
+  border: none;
+}
+
+/* <div class="lvl-preview"></div>
+    <input type="text" class="input-name" id="player-name" />
+    <div class="start-game-btn"></div>
+    <div class="level-container"></div> */
+
+body {
+  position: relative;
+  background-color: #73dc96;
+  min-height: 100vh;
+}
+
+.lvl-preview {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 80vh;
+  height: 50vh;
+  background-color: #c4c4c4;
+  border: 10px solid whitesmoke;
+  border-radius: 15px;
+  box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.25);
+  transform: rotate(-9deg);
+}
+
+.start-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  left: 60%;
+  top: 20%;
+  width: 60vh;
+  height: 40vh;
+  background-color: whitesmoke;
+  border: 10px solid whitesmoke;
+  border-radius: 15px;
+  transform: rotate(-9deg);
+  background-color: rgb(255, 99, 79);
+  box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.25);
+}
+
+.input-name {
+  width: 50vh;
+  height: 6vh;
+  border-radius: 15px;
+  outline: none;
+  padding: 10px;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.start-game-btn {
+  width: 40vh;
+  height: 15vh;
+  background: #4d7eff;
+  border-radius: 15px;
+  border: 10px solid whitesmoke;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+/* Home styles */
