@@ -7,7 +7,6 @@
   font-family: "Indie Flower", cursive;
   user-select: none;
   text-decoration: none;
-  scroll-behavior: smooth;
 }
 
 /* <div class="lvl-preview"></div>
@@ -70,19 +69,16 @@
   left: 95%;
   top: 2%;
   font-size: 30px;
+  cursor: pointer;
 }
-.unmute {
-  position: absolute;
-  height: 30px;
-  width: 2px;
-  background-color: rgb(216, 20, 20);
-}
+
 .right {
   position: sticky;
   height: 3vh;
   width: 30px;
   z-index: 1;
   right: 0;
+  scroll-behavior: smooth;
 }
 
 .left {
@@ -92,6 +88,7 @@
   z-index: 1;
   left: 0;
   transform: rotateY(180deg);
+  scroll-behavior: smooth;
 }
 
 .start-game-btn {
