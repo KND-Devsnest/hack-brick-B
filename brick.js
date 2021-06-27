@@ -21,10 +21,10 @@ class Brick{
             ball.x + ball.radius >= this.x &&//(left)
             ball.x - ball.radius <= this.x + this.width //(right)
         ){
-            if(ball.y - ball.radius <= this.y + this.height) return [1, 1]
-            if(ball.y + ball.radius >= this.y) return [1, -1]
-            if(ball.x + ball.radius >= this.x) return [-1, 1]
-            if(ball.x - ball.radius <= this.x + this.width) return [-1, 1]
-        }else return null;
+            if(ball.y - ball.radius <= this.y + this.height) return 'down';
+            if(ball.y + ball.radius >= this.y) return 'up';
+            if(ball.x + ball.radius >= this.x) return 'left';
+            if(ball.x - ball.radius <= this.x + this.width) 'right';
+        } else return null;
     }
 }

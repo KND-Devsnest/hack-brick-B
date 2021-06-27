@@ -19,12 +19,17 @@ const draw = (evt) => {
       bricks[i].render();
       let collision = bricks[i].checkCollision(ball);
       if (collision != null){
-        console.log("Collided")
         bricks[i] = 0;
-        if(ball.xSpeed * collision[0] < 0)
-          ball.xSpeed *= collision[0];
-        if(ball.yspeed * collision[1] < 0)
-          ball.ySpeed *= collision[1];
+        console.log(ball.xSpeed, ball.ySpeed)
+        if(collision === 'down' && ball.ySpeed < 0) {
+          ball.ySpeed *= -1;
+        } else if(collision === 'up' && ball.ySpeed > 0) {
+          ball.ySpeed *= -1;
+        } else if(collision === 'right' && ball.xSpeed < 0) {
+          ball.xSpeed *= -1;
+        } else if(collision === 'left' && ball.xSpeed > 0) {
+          ball.xSpeed *= -1;
+        }
       }
     }
   }
