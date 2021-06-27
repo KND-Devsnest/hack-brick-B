@@ -3,35 +3,37 @@ let y = 400;
 let pos = 250; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
-let current_level = 1;
+let current_level = 5;
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
 const currentLevels = 1;
 const bricks = drawBricks(current_level);
-let gameStatus = "Playing"
+let gameStatus = "Playing";
 const powerUpBalls = [];
 
 const canvasBoundRect = canvas.getBoundingClientRect();
 
-console.log(bricks)
+console.log(bricks);
 let totalBricks = bricks.length;
 
 let totalScore = 0;
 
 setTimeout(() => {
-playBackroundMusic();
+  playBackroundMusic();
 }, 200);
 
 let game;
-canvas.addEventListener('click', ()=>{
-  game = setInterval(() => {draw()}, 20);
-})
+canvas.addEventListener("click", () => {
+  game = setInterval(() => {
+    draw();
+  }, 20);
+});
 
 draw();
 
-function draw (evt){
+function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
@@ -39,8 +41,8 @@ function draw (evt){
     pauseBackgroundMusic();
     playLevelComplete();
     clearInterval(game);
-    ctx.font = '48px sans-serif';
-    ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250)
+    ctx.font = "48px sans-serif";
+    ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250);
     return;
   }
 
@@ -94,7 +96,7 @@ function draw (evt){
   }
 
   scoreField.innerHTML = totalScore;
-};
+}
 
 canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX - canvasBoundRect.x;

@@ -1,9 +1,5 @@
 let powerUps = ["paddleIncrease", "paddleDecrease", "goThrough", "powerBall"];
 let powerCount = 5;
-let bg1 = new Image();
-let bg2 = new Image();
-let bg3 = new Image();
-
 class Brick {
   constructor(x, y, width, height, ctx, type) {
     this.x = x;
@@ -15,6 +11,7 @@ class Brick {
     this.hit = brickTypes[type]["hits"];
     this.score = brickTypes[type]["score"];
     this.color = brickTypes[type]["color"];
+    this.src = brickTypes[type]["src"];
     this.powerType = (function () {
       if (powerCount > 0 && Math.random() - 0.5 > 0) {
         //Provide   a powerUp
@@ -30,9 +27,15 @@ class Brick {
   render() {
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.width, this.height);
+    // let bg = new Image();
+    // bg.src = this.src;
+    // this.ctx.drawImage(bg, this.x, this.y);
+    // bg.onload = function () {
+
+    // };
     this.ctx.fillStyle = this.color;
     this.ctx.strokeStyle = "black";
-    this.ctx.lineWidth = 4;
+    this.ctx.lineWidth = 0;
     this.ctx.stroke();
     this.ctx.fill();
   }
@@ -60,21 +63,21 @@ class Brick {
 
 const brickTypes = {
   wood: {
-    color: "brown",
+    color: "#C19A6C",
     score: 1,
     hits: 1,
-    src: "./images/texture/wood.png",
+    src: "./images/texture/wood_1.png",
   },
   rock: {
-    color: "gray",
+    color: "#ad2336",
     score: 2,
     hits: 3,
-    src: "./images/texture/stone.png",
+    src: "./images/texture/stone_1.jpg",
   },
   iron: {
     color: "silver",
     score: 3,
     hits: 4,
-    src: "./images/texture/iron.png",
+    src: "./images/texture/iron_1.png",
   },
 };
