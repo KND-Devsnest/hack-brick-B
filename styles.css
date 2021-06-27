@@ -16,6 +16,7 @@ body {
   position: relative;
   background-color: #73dc96;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .lvl-preview {
@@ -83,5 +84,46 @@ body {
 
 .play-text {
   transform: translate(-10%);
+}
+
+.level-container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  top: 70%;
+  overflow: scroll;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge /
+  scrollbar-width: none;  / Firefox */
+}
+.level-container::-webkit-scrollbar {
+  display: none;
+}
+
+.level-card {
+  margin-right: 20px;
+  width: 30vh;
+  height: 20vh;
+  background-color: teal;
+}
+
+.labl {
+  display: block;
+  width: 40vh;
+}
+.labl > input {
+  /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+.labl > input + div {
+  /* DIV STYLES */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.labl > input:checked + div {
+  /* (RADIO CHECKED) DIV STYLES */
+  background-color: #ffd6bb;
+  border: 1px solid #ff6600;
 }
 /* Home styles */
