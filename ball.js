@@ -13,14 +13,7 @@ class Ball {
     this.strength = 1;
   }
 
-  render(ctx) {
-    this.x += this.xSpeed;
-    this.y += this.ySpeed;
-    ctx.beginPath();
-    ctx.fillStyle = this.color;
-    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-    ctx.fill();
-  }
+    }
 
   render(ctx) {
     if (!this.isActive) return;
@@ -38,8 +31,40 @@ class Ball {
       this.xSpeed = -this.xSpeed;
     }
 
-    if (this.y - this.radius < 0) {
-      this.ySpeed = -this.ySpeed;
+        if(this.y - this.radius < 0){
+            this.ySpeed = -this.ySpeed;
+        }
+
+        if(this.y > 500 && this.powerUp == undefined){
+            gameStatus = "Game Over";
+        }
+
+        if (
+            this.x + this.radius >= pos - Math.floor(paddle.width/2) &&
+            this.x - this.radius <= pos + Math.floor(paddle.width/2) &&
+            this.y + this.radius >= paddle.y &&
+            this.y + this.radius <= paddle.y + paddle.height
+        ){
+            playPaddleHit();
+            if (this.powerUp == "paddleIncrease"){
+                paddle.increase();
+                return true;
+            }
+            else if (this.powerUp == "paddleDecrease"){
+                paddle.decrease();
+                return true;
+            }
+            else if(this.powerUp == "goThrough"){
+                mainBall.becomeGoThrough();
+                return true;
+            }
+            else if(this.powerUp == "powerBall"){
+                mainBall.increaseStrength();
+                return true;
+            }
+            this.ySpeed = -this.ySpeed;
+            
+        }
     }
     if (
       this.x + this.radius >= pos - Math.floor(paddle.width / 2) &&
@@ -87,3 +112,4 @@ class Ball {
     }, 5000);
   }
 }
+

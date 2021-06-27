@@ -1,6 +1,6 @@
 let x = 250;
 let y = 400;
-let pos = 20; // x position of mouse
+let pos = 250; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
 let current_level = 1;
@@ -10,7 +10,7 @@ const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
 const currentLevels = 5;
 const bricks = drawBricks(current_level);
-
+let gameStatus = "Playing"
 const powerUpBalls = [];
 
 const canvasBoundRect = canvas.getBoundingClientRect();
@@ -23,14 +23,23 @@ let totalScore = 0;
 //   playBackroundMusic();
 // }, 200);
 
-const draw = (evt) => {
+let game;
+canvas.addEventListener('click', ()=>{
+  game = setInterval(() => {draw()}, 20);
+})
+
+draw();
+
+function draw (evt){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (totalBricks == 0) {
+  if (totalBricks == 0 || gameStatus === "Game Over") {
     console.log("Khatam");
     // pauseBackgroundMusic();
     // playLevelComplete();
     clearInterval(game);
+    ctx.font = '48px sans-serif';
+    ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250)
     return;
   }
 
