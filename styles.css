@@ -6,7 +6,6 @@
   border: none;
   font-family: "Indie Flower", cursive;
   user-select: none;
-  scroll-behavior: smooth;
 }
 
 /* <div class="lvl-preview"></div>
@@ -20,12 +19,7 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
-.volume {
-  position: absolute;
-  right: 0;
 
-  font-size: 30px;
-}
 .lvl-preview {
   position: absolute;
   left: 10%;
@@ -111,22 +105,7 @@ body {
 .level-container::-webkit-scrollbar {
   display: none;
 }
-.right {
-  position: sticky;
-  height: 3vh;
-  width: 30px;
-  z-index: 1;
-  right: 0;
-}
 
-.left {
-  position: sticky;
-  height: 3vh;
-  width: 30px;
-  z-index: 1;
-  left: 0;
-  transform: rotateY(180deg);
-}
 .level-card {
   margin-right: 20px;
   width: 30vh;

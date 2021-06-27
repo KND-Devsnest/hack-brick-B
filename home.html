@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="volume">🔊</div>
+  <body class="home">
     <div class="lvl-preview"></div>
     <div class="start-wrapper">
       <input type="text" class="input-name" id="player-name" />
-      <div class="start-game-btn"><p class="play-text">Play!</p></div>
+      <a href="./index.html"
+        ><div class="start-game-btn"><p class="play-text">Play!</p></div></a
+      >
     </div>
     <div class="level-container">
-      <img class="left" src="images\right-arrow.png" />
       <label class="labl">
         <input type="radio" name="radioname" value="another" />
         <div class="level-card">#</div>
@@ -45,7 +45,6 @@
         <input type="radio" name="radioname" value="another" />
         <div class="level-card">6</div>
       </label>
-      <img class="right" src="images\right-arrow.png" />
     </div>
     <script src="scroll.js" async defer></script>
   </body>
