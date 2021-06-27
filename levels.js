@@ -6,7 +6,6 @@ function level1Bricks() {
         }
         space+=5;
     }
-    //0, 25, 50, 75, 100
     return bricks;
 }
 
@@ -26,4 +25,4 @@ function level5Bricks() {
     
 }
 
-const level = [{}, {getBricks: level1Bricks}, {getBricks: level1Bricks}, {getBricks: level1Bricks}, {getBricks: level1Bricks}, {getBricks: level1Bricks}];
+const level = [{}, {getBricks: level1Bricks, powerCount: 5}, {getBricks: level1Bricks}, {getBricks: level1Bricks}, {getBricks: level1Bricks}, {getBricks: level1Bricks}];

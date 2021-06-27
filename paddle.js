@@ -5,7 +5,7 @@ class Paddle {
         this.ctx = ctx;
         this.canvas = canvas;
 
-        this.x = 450;
+        this.x = 175;
         this.y = 450;
     }
 
