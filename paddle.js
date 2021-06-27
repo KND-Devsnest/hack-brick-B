@@ -7,10 +7,6 @@ class Paddle {
 
         this.x = 450;
         this.y = 450;
-
-        console.log();
-
-        ctx.fillStyle = 'black';
     }
 
     render(pos) {
@@ -24,7 +20,10 @@ class Paddle {
         else
             this.x = paddleXPos;
 
-        ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle
-        ctx.fill();
+        this.ctx.beginPath();
+
+        this.ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle
+        this.ctx.fillStyle = 'black';
+        this.ctx.fill();
     }
 }

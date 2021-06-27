@@ -4,8 +4,8 @@ class Ball{
         this.color = color;
         this.x = startX;
         this.y = startY;
-        this.xSpeed = 0;
-        this.ySpeed = 2.8;
+        this.xSpeed = 2;
+        this.ySpeed = 4.8;
 
     }
 
@@ -17,7 +17,7 @@ class Ball{
         ctx.fill();
     }
 
-    changeDirection(){
+    changeDirection(paddle){
         //change ball direction when it hits a wall or the paddle.
         if(this.x + this.radius > canvas.width || this.x - this.radius < 0){
             this.xSpeed = -this.xSpeed;
@@ -27,8 +27,8 @@ class Ball{
             this.ySpeed = -this.ySpeed;
         }
         if (
-            this.x + this.radius >= pos - paddle.width &&
-            this.x - this.radius <= pos + paddle.width &&
+            this.x + this.radius >= pos - Math.floor(paddle.width/2) &&
+            this.x - this.radius <= pos + Math.floor(paddle.width/2) &&
             this.y + this.radius >= paddle.y &&
             this.y + this.radius <= paddle.y + paddle.height
         ){
