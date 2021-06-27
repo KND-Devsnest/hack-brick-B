@@ -7,7 +7,10 @@ const canvas = document.getElementById("main");
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
+const currentLevels = 2;
 const bricks = drawBricks();
+
+const canvasBoundRect = canvas.getBoundingClientRect();
 
 let totalBricks = bricks.length;
 
@@ -31,7 +34,6 @@ const draw = (evt) => {
         totalBricks -= 1;
         totalScore += bricks[i].score;
         console.log(bricks[i])
-        console.log(ball.xSpeed, ball.ySpeed)
         if(collision[0] === 'down' && ball.ySpeed < 0) {
           ball.ySpeed *= -1;
         } else if(collision[0] === 'up' && ball.ySpeed > 0) {
@@ -58,15 +60,14 @@ setInterval(() => {
 }, 20);
 
 canvas.addEventListener("mousemove", (e) => {
-  pos = e.clientX;
+  pos = e.clientX - canvasBoundRect.x;
+  console.log(e);
 });
 
 function drawBricks(){
   let bricks = []
   for (let i = 0; i < 10; i++) {
-    bricks.push(new Brick(i * 50, 30, 50, 25, ctx, 'rock'));
+    bricks.push(new Brick(i * 50, 30, 50, 25, ctx, 'normal'));
   }
   return bricks;
 }
-
-function checkCollision() {}

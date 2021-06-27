@@ -14,8 +14,11 @@ class Brick{
     render(){
         this.ctx.beginPath();
         this.ctx.rect(this.x, this.y, this.width, this.height);
-        this.ctx.fillStyle = this.color
-        this.ctx.stroke(); 
+        this.ctx.fillStyle = this.color;
+        this.ctx.strokeStyle =  "black";
+        this.ctx.lineWidth =  4;
+        this.ctx.stroke();
+        this.ctx.fill();
     }
 
     checkCollision(ball){
@@ -36,6 +39,6 @@ class Brick{
 }
 
 const brickTypes = {
-    "normal" : {"color":"black", "score":1, "hits": 1},
+    "normal" : {"color":"yellow", "score":1, "hits": 1},
     "rock" : {"color":"orange", "score": 2, "hits": 3}
 }
