@@ -42,6 +42,6 @@ class Brick {
 
 const brickTypes = {
   wood: { color: "brown", score: 1, hits: 1 },
-  rock: { color: "gray", score: 2, hits: 2 },
-  iron: { color: "silver", score: 4, hits: 4 },
+  rock: { color: "gray", score: 2, hits: 3 },
+  iron: { color: "silver", score: 3, hits: 4 },
 };
