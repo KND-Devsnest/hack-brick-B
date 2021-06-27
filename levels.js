@@ -6,7 +6,6 @@ function level1Bricks() {
         }
         space+=5;
     }
-    //0, 25, 50, 75, 100
     return bricks;
 }
 
