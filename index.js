@@ -11,6 +11,8 @@ const ball = new Ball(13, "black", x, y);
 const currentLevels = 2;
 const bricks = drawBricks(current_level);
 
+const powerUpBalls = [];
+
 const canvasBoundRect = canvas.getBoundingClientRect();
 pos = 250 ;
 
@@ -43,7 +45,6 @@ function draw(evt) {
       bricks[i].render();
       let collision = bricks[i].checkCollision(ball);
       if (collision != null){
-        totalBricks -= 1;
         totalScore += bricks[i].score;
 
         if(collision[0] === 'down' && ball.ySpeed < 0) {
@@ -55,15 +56,29 @@ function draw(evt) {
         } else if(collision[0] === 'left' && ball.xSpeed > 0) {
           ball.xSpeed *= -1;
         }
-        if (collision[1] == 0)
+        if (collision[1] <= 0){
+          if (bricks[i].powerType != null){
+            powerUpBalls.push(new Ball(10, "blue", bricks[i].x + Math.floor(bricks[i].width/2), bricks[i].y + bricks[i].height, bricks[i].powerType, 0, 4));
+          }
+          totalBricks -= 1;
           bricks[i] = 0;
+        }
       } 
     }
   }
 
   ball.render(ctx);
-  paddle.render(pos);
+  paddle.render(pos, ctx);
   ball.changeDirection(paddle);
+
+  for( let i in powerUpBalls){
+    if (!powerUpBalls[i].isActive) continue;
+    powerUpBalls[i].render(ctx);
+    if (powerUpBalls[i].changeDirection(paddle, ball)){
+      powerUpBalls[i].isActive = false;
+    }
+  }
+
   scoreField.innerHTML = totalScore;
 }
 

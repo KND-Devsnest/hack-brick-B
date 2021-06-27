@@ -1,16 +1,21 @@
 class Ball{
-    constructor(radius, color, startX, startY, powerUp){
+    constructor(radius, color, startX, startY, powerUp, xSpeed = 2, ySpeed = -8){
         this.radius = radius;
         this.color = color;
         this.x = startX;
         this.y = startY;
-        this.xSpeed = 2;//2
-        this.ySpeed = -8;//4.8
-        this.powerUp = powerUp
+        this.xSpeed = xSpeed;//2
+        this.ySpeed = ySpeed;//4.8
+        this.powerUp = powerUp;
+        this.isActive = true;
+        this.isGoThrough = false;
+        this.defaultColor = "black";
+        this.strength = 1;
 
     }
 
     render(ctx){
+        if (!this.isActive) return;
         this.x += this.xSpeed;
         this.y += this.ySpeed;
         ctx.beginPath();
@@ -19,7 +24,7 @@ class Ball{
         ctx.fill();
     }
 
-    changeDirection(paddle){
+    changeDirection(paddle, mainBall){
         //change ball direction when it hits a wall or the paddle.
         if(this.x + this.radius > canvas.width || this.x - this.radius < 0){
             this.xSpeed = -this.xSpeed;
@@ -35,12 +40,47 @@ class Ball{
             this.y + this.radius <= paddle.y + paddle.height
         ){
             playPaddleHit();
-            if (this.isPowerUp){
-
+            if (this.powerUp == "paddleIncrease"){
+                paddle.increase();
+                return true;
+            }
+            else if (this.powerUp == "paddleDecrease"){
+                paddle.decrease();
+                return true;
+            }
+            else if(this.powerUp == "goThrough"){
+                mainBall.becomeGoThrough();
+                return true;
+            }
+            else if(this.powerUp == "powerBall"){
+                mainBall.increaseStrength();
+                return true;
             }
             this.ySpeed = -this.ySpeed;
             
         }
+    }
+    
+    becomeGoThrough(){
+        if (this.isGoThrough) return;
+        this.isGoThrough = true;
+        let color = this.color;
+        this.color = "red"
+        setTimeout(() => {
+            this.isGoThrough = false;
+            this.color = this.defaultColor;
+        }, 3000);
+    }
+
+    increaseStrength(){
+        if (this.strength >= 3) return;
+        this.strength += 2;
+        this.color = "grey";
+        console.log(this.strength);
+        setTimeout(() => {
+            this.strength = 1;
+            this.color = this.defaultColor;
+        }, 5000)
     }
 }
 
