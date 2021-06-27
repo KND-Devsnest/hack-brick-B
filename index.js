@@ -20,9 +20,9 @@ let totalBricks = bricks.length;
 
 let totalScore = 0;
 
-// setTimeout(() => {
-//   playBackroundMusic();
-// }, 200);
+setTimeout(() => {
+playBackroundMusic();
+}, 200);
 
 let game;
 canvas.addEventListener('click', ()=>{
@@ -36,8 +36,8 @@ function draw (evt){
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
     console.log("Khatam");
-    // pauseBackgroundMusic();
-    // playLevelComplete();
+    pauseBackgroundMusic();
+    playLevelComplete();
     clearInterval(game);
     ctx.font = '48px sans-serif';
     ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250)
