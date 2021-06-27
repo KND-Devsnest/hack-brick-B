@@ -1,6 +1,6 @@
 let x = 250;
-let y = 400;
-let pos = 20; // x position of mouse
+let y = 415;
+let pos; // x position of mouse
 const scoreField = document.getElementById('score');
 const canvas = document.getElementById("main");
 let current_level = 1;
@@ -12,14 +12,22 @@ const currentLevels = 2;
 const bricks = drawBricks(current_level);
 
 const canvasBoundRect = canvas.getBoundingClientRect();
+pos = 250 ;
 
 let totalBricks = bricks.length;
 
 let totalScore = 0;
+let game;
+canvas.addEventListener("click", () => {
+  game = setInterval(() => {
+    draw();
+  }, 20)
+})
+draw();
 
 setTimeout(() => {playBackroundMusic()}, 200);
 
-const draw = (evt) => {
+function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if(totalBricks == 0){
@@ -58,10 +66,6 @@ const draw = (evt) => {
   ball.changeDirection(paddle);
   scoreField.innerHTML = "Score :" + totalScore;
 }
-
-const game = setInterval(() => {
-  draw();
-}, 20);
 
 canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX - canvasBoundRect.x;
