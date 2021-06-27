@@ -59,36 +59,22 @@ const brickTypes = {
     color: "brown",
     score: 1,
     hits: 1,
-    background: () => {
       var bg = new Image();
       bg.src = "./images/texture/wood.png";
-      bg.onload = function () {
-        this.drawImage(bg, 0, 0);
-      };
     },
   },
   rock: {
     color: "gray",
     score: 2,
     hits: 3,
-    background: () => {
       var bg = new Image();
       bg.src = "./images/texture/stone.png";
-      bg.onload = function () {
-        ctx.drawImage(bg, 0, 0);
-      };
-    },
   },
   iron: {
     color: "silver",
     score: 3,
     hits: 4,
-    background: () => {
-      var bg = new Image();
+      var bg = new Image()
       bg.src = "./images/texture/iron.png";
-      bg.onload = function () {
-        ctx.drawImage(bg, 0, 0);
-      };
-    },
   },
 };

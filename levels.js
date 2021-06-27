@@ -411,7 +411,7 @@ function level5Bricks() {
 
 const level = [
   {},
-  { getBricks: () => {level1Bricks()} },
+  { getBricks: level1Bricks },
   { getBricks: level2Bricks },
   { getBricks: level3Bricks },
   { getBricks: level4Bricks },
