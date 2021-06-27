@@ -5,6 +5,7 @@
   margin: 0;
   border: none;
   font-family: "Indie Flower", cursive;
+  user-select: none;
 }
 
 /* <div class="lvl-preview"></div>
@@ -30,6 +31,7 @@ body {
   border-radius: 15px;
   box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.25);
   transform: rotate(-9deg);
+  z-index: 2;
 }
 
 .start-wrapper {
@@ -48,6 +50,7 @@ body {
   transform: rotate(-9deg);
   background-color: rgb(255, 99, 79);
   box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.25);
+  z-index: 2;
 }
 
 .input-name {
@@ -84,13 +87,16 @@ body {
 
 .play-text {
   transform: translate(-10%);
+  user-select: none;
 }
 
 .level-container {
   width: 100%;
+  height: 50vh;
   position: absolute;
   display: flex;
-  top: 70%;
+  align-items: center;
+  top: 60%;
   overflow: scroll;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge /
@@ -104,7 +110,10 @@ body {
   margin-right: 20px;
   width: 30vh;
   height: 20vh;
-  background-color: teal;
+  background: #ffeecd;
+  border: 10px solid #c5b494;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .labl {
@@ -119,11 +128,13 @@ body {
 .labl > input + div {
   /* DIV STYLES */
   cursor: pointer;
-  border: 2px solid transparent;
 }
 .labl > input:checked + div {
   /* (RADIO CHECKED) DIV STYLES */
-  background-color: #ffd6bb;
-  border: 1px solid #ff6600;
+  background: #fcf2df;
+  transform: scale(1.1);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.15);
 }
 /* Home styles */
+
+/* Main Styles */
