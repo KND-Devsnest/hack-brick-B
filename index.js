@@ -67,7 +67,7 @@ canvas.addEventListener("mousemove", (e) => {
 function drawBricks(){
   let bricks = []
   for (let i = 0; i < 10; i++) {
-    bricks.push(new Brick(i * 50, 30, 50, 25, ctx, 'normal'));
+    bricks.push(new Brick(i * 50, 150, 50, 25, ctx, 'normal'));
   }
   return bricks;
 }
