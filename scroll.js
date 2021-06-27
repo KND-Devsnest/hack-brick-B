@@ -38,3 +38,26 @@ buttonLeft.onclick = function () {
 };
 
 //Scroll key
+(function () {
+  function scrollHorizontally(e) {
+    e = window.event || e;
+    var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+    document.querySelector(".level-container").scrollLeft -= delta * 40; // Multiplied by 40
+    e.preventDefault();
+  }
+  if (document.querySelector(".level-container").addEventListener) {
+    // IE9, Chrome, Safari, Opera
+    document
+      .querySelector(".level-container")
+      .addEventListener("mousewheel", scrollHorizontally, false);
+    // Firefox
+    document
+      .querySelector(".level-container")
+      .addEventListener("DOMMouseScroll", scrollHorizontally, false);
+  } else {
+    // IE 6/7/8
+    document
+      .querySelector(".level-container")
+      .attachEvent("onmousewheel", scrollHorizontally);
+  }
+})();
