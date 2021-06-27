@@ -5,30 +5,33 @@ let yspeed = 2.8;
 let pos = 20; // x position of mouse
 const canvas = document.getElementById("main");
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
-ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
+const ball = new Ball(13, "black", x, y);
 
-function draw(evt) {
+const draw = (evt) => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBoard();
 
   x += xspeed;
   y += yspeed;
-  ctx.beginPath();
-  ctx.arc(x, y, 13, 0, 2 * Math.PI);
-  ctx.fill();
+  // ctx.beginPath();
+  // ctx.arc(x, y, 13, 0, 2 * Math.PI);
+  // ctx.fill();
+  ball.render(ctx);
 
   paddle.render(pos);
-
-  if (x > canvas.width || x < 0) {
-    xspeed = xspeed * -1;
-  }
-  if (y < 0) {
-    yspeed = yspeed * -1;
-  }
-  if (x >= pos && x <= pos + 50 && y >= 450 && y <= 460) {
-    yspeed = yspeed * -1;
-  }
+  ball.changeDirection();
+  
+  // if (x > canvas.width || x < 0) {
+  //   xspeed = xspeed * -1;
+  // }
+  // if (y < 0) {
+  //   yspeed = yspeed * -1;
+  // }
+  // if (x >= pos && x <= pos + 50 && y >= 450 && y <= 460) {
+  //   yspeed = yspeed * -1;
+  // }
 }
 
 setInterval(() => {
