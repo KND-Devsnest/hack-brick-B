@@ -2,10 +2,12 @@ let x = 100;
 let y = 100;
 let xspeed = 1;
 let yspeed = 2.8;
-let pos = 20;
+let pos = 20; // x position of mouse
 const canvas = document.getElementById("main");
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 ctx = canvas.getContext("2d");
+const paddle = new Paddle(150, 15, ctx, canvas);
+
 function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBoard();
@@ -15,9 +17,8 @@ function draw(evt) {
   ctx.beginPath();
   ctx.arc(x, y, 13, 0, 2 * Math.PI);
   ctx.fill();
-  ctx.beginPath();
-  ctx.rect(pos, 450, 50, 10);
-  ctx.stroke();
+
+  paddle.render(pos);
 
   if (x > canvas.width || x < 0) {
     xspeed = xspeed * -1;
@@ -29,6 +30,7 @@ function draw(evt) {
     yspeed = yspeed * -1;
   }
 }
+
 setInterval(() => {
   draw();
 }, 20);
@@ -36,6 +38,7 @@ setInterval(() => {
 canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX;
 });
+
 function drawBoard() {
   for (let i of level1) {
     ctx.beginPath();

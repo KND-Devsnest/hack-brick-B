@@ -6,4 +6,3 @@
 
 [Description](#description)  
 [How to Play](#Play)
-
