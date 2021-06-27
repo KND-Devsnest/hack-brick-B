@@ -1,5 +1,5 @@
 let powerUps = ["paddleIncrease", "paddleDecrease", "Gothrough", "BowerBall"]
-let powerCount = level[current_level].powerCount;
+let powerCount = 5;
 
 class Brick{
     constructor(x, y, width, height, ctx, type){
