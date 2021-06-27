@@ -1,7 +1,7 @@
 let x = 250;
 let y = 415;
 let pos; // x position of mouse
-const scoreField = document.getElementById('score');
+const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
 let current_level = 1;
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
@@ -14,7 +14,7 @@ const bricks = drawBricks(current_level);
 const powerUpBalls = [];
 
 const canvasBoundRect = canvas.getBoundingClientRect();
-pos = 250 ;
+pos = 250;
 
 let totalBricks = bricks.length;
 
@@ -23,37 +23,39 @@ let game;
 canvas.addEventListener("click", () => {
   game = setInterval(() => {
     draw();
-  }, 20)
-})
+  }, 20);
+});
 draw();
 
-setTimeout(() => {playBackroundMusic()}, 200);
+setTimeout(() => {
+  playBackroundMusic();
+}, 200);
 
 function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if(totalBricks == 0){
+  if (totalBricks == 0) {
     console.log("Khatam");
     pauseBackgroundMusic();
     playLevelComplete();
     clearInterval(game);
-    return; 
+    return;
   }
-  
-  for(let i in bricks){
-    if (bricks[i] !== 0){
+
+  for (let i in bricks) {
+    if (bricks[i] !== 0) {
       bricks[i].render();
       let collision = bricks[i].checkCollision(ball);
       if (collision != null){
         totalScore += bricks[i].score;
 
-        if(collision[0] === 'down' && ball.ySpeed < 0) {
+        if (collision[0] === "down" && ball.ySpeed < 0) {
           ball.ySpeed *= -1;
-        } else if(collision[0] === 'up' && ball.ySpeed > 0) {
+        } else if (collision[0] === "up" && ball.ySpeed > 0) {
           ball.ySpeed *= -1;
-        } else if(collision[0] === 'right' && ball.xSpeed < 0) {
+        } else if (collision[0] === "right" && ball.xSpeed < 0) {
           ball.xSpeed *= -1;
-        } else if(collision[0] === 'left' && ball.xSpeed > 0) {
+        } else if (collision[0] === "left" && ball.xSpeed > 0) {
           ball.xSpeed *= -1;
         }
         if (collision[1] <= 0){
@@ -86,7 +88,7 @@ canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX - canvasBoundRect.x;
 });
 
-function drawBricks(current_level){
+function drawBricks(current_level) {
   let bricks = level[current_level].getBricks();
   return bricks;
 }
