@@ -17,7 +17,7 @@
 
 .home {
   position: relative;
-  background-color: #73dc96;
+  background-color: #9938d1;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -215,7 +215,7 @@
   margin: 10vh auto;
   width: 30vh;
   height: 15vh;
-  background: #ff5e84;
+  background: rgb(255, 99, 79);
   border: 10px solid #ffffff;
   box-sizing: border-box;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.25);
