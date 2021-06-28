@@ -3,6 +3,7 @@ class Paddle {
     this.width = width;
     this.height = height;
     this.ctx = ctx;
+    this.radius = radius;
     this.canvas = canvas;
     this.color = color;
     this.radius = radius;
@@ -47,9 +48,9 @@ class Paddle {
     ctx.closePath();
     ctx.fillStyle = this.color;
     ctx.fill();
-
     // ctx.fillStyle = this.color;
     // ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle for paddle
+    //ctx.fill();
   }
 
   increase() {

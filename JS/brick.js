@@ -1,8 +1,8 @@
-let powerUps = ["paddleIncrease", "paddleDecrease", "goThrough", "powerBall"];
-let powerCount = 5;
+let powerUps = ["paddleIncrease", "paddleDecrease", "goThrough", "powerBall", "fastBall", "slowBall"];
+let powerCount = [null,25,25,25,25,25,25];
 
 class Brick {
-  constructor(x, y, width, height, ctx, type) {
+  constructor(x, y, width, height, ctx, type, currentLevel) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -16,14 +16,16 @@ class Brick {
     this.src = brickTypes[type]["src"];
     this.soundFx = brickTypes[type]['soundFx']
     this.powerType = (function () {
-      if (powerCount > 0 && Math.random() - 0.5 > 0) {
+      //return powerUps[Math.floor(Math.random() * 2) + 1];
+      if (powerCount[currentLevel] > 0 && Math.random() - 0.5 > 0) {
         //Provide   a powerUp
-        --powerCount;
+        --powerCount[currentLevel];
+        //console.log(x, y);
         return powerUps[Math.floor(Math.random() * 4)];
       }
       // Else return
       return null;
-      //return powerUps[3];
+      
     })();
   }
 

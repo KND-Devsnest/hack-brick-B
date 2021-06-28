@@ -31,6 +31,7 @@ const playBackroundMusic = () => {
 
 const pauseBackgroundMusic = () => {
   bgm.pause();
+  bgm.muted = true;
 };
 
 const playPaddleHit = () => {

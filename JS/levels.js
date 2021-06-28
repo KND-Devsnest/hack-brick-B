@@ -61,7 +61,7 @@ function level1Bricks() {
   ];
   let bricks = [];
   for (let i = 0; i < level1.length; ++i) {
-    bricks.push(new Brick(level1[i][0], level1[i][1], 45, 20, ctx, "wood"));
+    bricks.push(new Brick(level1[i][0], level1[i][1], 45, 20, ctx, "wood",1));
   }
   //0, 25, 50, 75, 100
   return bricks;
@@ -157,7 +157,8 @@ function level2Bricks() {
         45,
         20,
         ctx,
-        type[Math.floor(Math.random() * 2)]
+        type[Math.floor(Math.random() * 2)],
+        2
       )
     );
   }
@@ -238,7 +239,8 @@ function level3Bricks() {
         45,
         20,
         ctx,
-        type[Math.floor(Math.random() * 2)]
+        type[Math.floor(Math.random() * 2)],
+        3
       )
     );
   }
@@ -315,7 +317,8 @@ function level4Bricks() {
         45,
         20,
         ctx,
-        type[Math.floor(Math.random() * 3)]
+        type[Math.floor(Math.random() * 3)],
+        4
       )
     );
   }
@@ -409,7 +412,8 @@ function level5Bricks() {
         45,
         20,
         ctx,
-        type[Math.floor(Math.random() * 3)]
+        type[Math.floor(Math.random() * 3)],
+        5
       )
     );
   }
@@ -430,7 +434,8 @@ function level6Bricks() {
           45,
           20,
           ctx,
-          type[Math.floor(Math.random() * 3)]
+          type[Math.floor(Math.random() * 3)],
+          6
         )
       );
     }
