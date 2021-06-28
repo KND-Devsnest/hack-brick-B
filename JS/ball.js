@@ -18,6 +18,10 @@ class Ball {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
     ctx.beginPath();
+    ctx.shadowColor = "black";
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
     ctx.fillStyle = this.color;
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();

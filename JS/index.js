@@ -131,6 +131,7 @@ function draw(evt) {
       playLevelComplete();
     } else {
       playLevelFail();
+      document.getElementById("ttl-score-over").innerHTML = totalScore;
       gameOverDiv.style.display = "block";
     }
     clearInterval(game);
