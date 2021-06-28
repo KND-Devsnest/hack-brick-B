@@ -205,16 +205,17 @@
   top: 10%;
   left: 75%;
   display: flex;
-  justify-content: safe;
+  justify-content: space-between;
   flex-direction: column;
 }
 .misc {
   width: 40vh;
-  height: 50vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  background: #73dc96;
+  background: rgb(78, 241, 160);
   border: 10px solid #ffffff;
   box-sizing: border-box;
   border-radius: 15px;
@@ -258,8 +259,12 @@
   background: #ffeecd;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+  font-size: 3vh;
 }
 
+#score {
+  font-size: 6vh;
+}
 .volumewrapper {
   position: absolute;
   top: 2%;
@@ -301,15 +306,51 @@
   background-color: white;
   width: 90%;
   height: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: rgb(78, 241, 160);
   border: 10px solid white;
   border-radius: 15px;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
 }
 
+.powerup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  width: 32vh;
+  height: 40vh;
+  background: #ffeecd;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  font-size: 3vh;
+}
+
+.line {
+  width: 80%;
+  height: 2px;
+  background-color: saddlebrown;
+}
+.high-score-container {
+  margin-top: 10px;
+  width: 35vh;
+  height: 16vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #ffeecd;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  font-size: 2.5vh;
+}
+
 /* Game-Won */
 
-.game-won-wrapper {
+.game-won-wrapper,
+.game-over-wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -322,7 +363,8 @@
   display: none;
 }
 
-.game-won {
+.game-won,
+.game-over {
   position: absolute;
   width: 60vh;
   height: 35vh;
@@ -342,7 +384,8 @@
   font-size: 5vh;
 }
 
-.next-level-btn {
+.next-level-btn,
+.retry-btn {
   margin: 0 auto;
   width: 35vh;
   height: 15vh;
@@ -356,12 +399,14 @@
   justify-content: center;
 }
 
-.next-level-btn:active {
+.next-level-btn:active,
+.retry-btn:active {
   transform: scale(0.97);
   transition: all ease-out 0.2s;
 }
 
-.next-level-text {
+.next-level-text,
+.retry-text {
   color: whitesmoke;
   font-size: 5vh;
   user-select: none;
