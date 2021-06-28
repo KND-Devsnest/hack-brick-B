@@ -3,12 +3,12 @@ let y = 400;
 let pos = 250; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
-let current_level = 4;
+let current_level = 3;
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
-const paddle = new Paddle(150, 15, ctx, canvas);
+const paddle = new Paddle(150, 15, ctx, canvas, "white");
 const ball = new Ball(13, "black", x, y);
-const currentLevels = 5;
+const currentLevels = 3;
 const bricks = drawBricks(current_level);
 let gameStatus = "Playing";
 const powerUpBalls = [];
@@ -26,9 +26,9 @@ if (currentLevels == 1) {
   canvas.style.background = "url('images/levels/lvl-3.jpg')";
 } else if (currentLevels == 4) {
   canvas.style.background = "url('images/levels/lvl-4.jpg')";
-} else if (currentLevels == 4) {
-  canvas.style.background = "url('images/levels/lvl-5.jpg')";
 } else if (currentLevels == 5) {
+  canvas.style.background = "url('images/levels/lvl-5.jpg')";
+} else if (currentLevels == 6) {
   canvas.style.background = "url('images/levels/lvl-6.jpg')";
 }
 
