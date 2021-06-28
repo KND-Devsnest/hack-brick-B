@@ -9,7 +9,7 @@ class Ball {
     this.powerUp = powerUp;
     this.isActive = true;
     this.isGoThrough = false;
-    this.defaultColor = "black";
+    this.defaultColor = color;
     this.strength = 1;
   }
 
@@ -19,7 +19,6 @@ class Ball {
     this.y += this.ySpeed;
     ctx.beginPath();
     ctx.fillStyle = this.color;
-    console.log(this.color);
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
   }
@@ -65,7 +64,6 @@ class Ball {
   becomeGoThrough() {
     if (this.isGoThrough) return;
     this.isGoThrough = true;
-    let color = this.color;
     this.color = "red";
     setTimeout(() => {
       this.isGoThrough = false;
@@ -77,7 +75,6 @@ class Ball {
     if (this.strength >= 3) return;
     this.strength += 2;
     this.color = "grey";
-    console.log(this.strength);
     setTimeout(() => {
       this.strength = 1;
       this.color = this.defaultColor;

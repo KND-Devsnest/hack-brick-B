@@ -11,6 +11,10 @@ const fx = new Audio("./sounds/gameSounds/paddleHit.wav");
 fx.autoplay = true;
 fx.muted = true;
 
+const brickFx = new Audio("./sounds/gameSounds/woodBrickHit.wav");
+fx.autoplay = true;
+fx.muted = true;
+
 const bgm = new Audio(
   document.title == "Home"
     ? "./sounds/gameSounds/Bloom.mp3"
@@ -53,3 +57,11 @@ const pressButton = () => {
   fx.src = "./sounds/uiSounds/button.mp3";
   fx.play();
 };
+
+const playBrickHit = (brickType) => {
+  if(brickFx.paused) {  
+    brickFx.muted = false;
+    brickFx.src = brickType
+    brickFx.play();
+  }
+}

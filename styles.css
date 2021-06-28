@@ -13,7 +13,12 @@
     <input type="text" class="input-name" id="player-name" />
     <div class="start-game-btn"></div>
     <div class="level-container"></div> */
-
+.image_div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
 .home {
   position: relative;
   background-color: #9938d1;
@@ -182,7 +187,7 @@
 .game-container {
   position: absolute;
   top: 10%;
-  left: 10%;
+  left: 30%;
   height: 80vh;
   width: 80vh;
   border-radius: 15px;
@@ -198,7 +203,7 @@
   width: 40vh;
   position: absolute;
   top: 10%;
-  left: 60%;
+  left: 75%;
   display: flex;
   justify-content: safe;
   flex-direction: column;
@@ -283,15 +288,26 @@
   visibility: hidden;
 }
 
-/* Game-Won */
+/* left-bar */
+.left-bar-wrapper {
+  position: absolute;
+  width: 40vh;
+  height: 80vh;
+  left: 7%;
+  top: 10%;
+}
 
-/* <div class="game-won-wrapper">
-        <div class="game-won">
-          <h1 id="game-won-text">Game Won</h1>
-          Score:<h4 id="score"></h4>
-          <div class="next-level-btn"><div class="next-level-text">Next Level ></div></div>
-        </div>
-      </div> */
+.left-bar {
+  background-color: white;
+  width: 90%;
+  height: 90%;
+  background-color: rgb(78, 241, 160);
+  border: 10px solid white;
+  border-radius: 15px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Game-Won */
 
 .game-won-wrapper {
   position: absolute;
@@ -310,8 +326,8 @@
   position: absolute;
   width: 60vh;
   height: 35vh;
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  left: 34%;
   transform: translate(-50%, -50%);
   background-color: rgb(253, 55, 105);
   border: 10px solid white;
@@ -350,4 +366,11 @@
   font-size: 5vh;
   user-select: none;
   padding: 10px;
+}
+
+/* canvas styling */
+canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }

@@ -2,7 +2,9 @@ const level_bg = [
   "images/levels/lvl-1.jpg",
   "images/levels/lvl-2.jpg",
   "images/levels/lvl-3.jpg",
-  "images/levels/lvl-1.jpg",
+  "images/levels/lvl-4.jpg",
+  "images/levels/lvl-5.jpg",
+  "images/levels/lvl-6.jpg",
 ];
 function level1Bricks() {
   const level1 = [
