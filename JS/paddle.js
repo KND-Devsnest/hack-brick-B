@@ -19,11 +19,8 @@ class Paddle {
       this.x = paddleXPos;
     }
 
-    ctx.beginPath();
-
-    ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle
     ctx.fillStyle = this.color;
-    this.ctx.strokeStyle = "black";
+    ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle for paddle
     ctx.fill();
   }
 

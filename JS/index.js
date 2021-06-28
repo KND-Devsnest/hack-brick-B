@@ -16,6 +16,15 @@ const canvasBoundRect = canvas.getBoundingClientRect();
 console.log(bricks);
 let totalBricks = bricks.length;
 
+let backgroundImages = [null, "url('images/levels/lvl-1.jpg')", 
+                              "url('images/levels/lvl-2.jpg')",
+                              "url('images/levels/lvl-3.jpg')",
+                              "url('images/levels/lvl-4.jpg')",
+                              "url('images/levels/lvl-5.jpg')",
+                              "url('images/levels/lvl-6.jpg')"];
+
+canvas.style.background = backgroundImages[current_level];
+
 //function to set image to background
 if (currentLevels == 1) {
   // full value is provided
