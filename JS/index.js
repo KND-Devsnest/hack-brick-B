@@ -1,67 +1,77 @@
-let x = 250;
-let y = 400;
-let pos = 250; // x position of mouse
-const scoreField = document.getElementById("score");
-const canvas = document.getElementById("main");
-let current_level = 3;
-const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
-const ctx = canvas.getContext("2d");
-const paddle = new Paddle(150, 15, ctx, canvas, "white");
-const ball = new Ball(13, "black", x, y);
-const currentLevels = 3;
-const bricks = drawBricks(current_level);
-let gameStatus = "Playing";
-const powerUpBalls = [];
-const canvasBoundRect = canvas.getBoundingClientRect();
-console.log(bricks);
-let totalBricks = bricks.length;
+let x, 
+    y, 
+    pos, 
+    scoreField, 
+    canvas, 
+    ctx, 
+    paddle,
+    ball, 
+    currentLevels, 
+    bricks, 
+    gameStatus, 
+    powerUpBalls, 
+    canvasBoundRect, 
+    totalBricks, 
+    totalScore, 
+    game,
+    backgroundImages = [
+      null, "url('images/levels/lvl-1.jpg')",
+      "url('images/levels/lvl-2.jpg')",
+      "url('images/levels/lvl-3.jpg')",
+      "url('images/levels/lvl-4.jpg')",
+      "url('images/levels/lvl-5.jpg')",
+      "url('images/levels/lvl-6.jpg')"
+    ],
+    paddle_ball_color = [null, "white", "white", "white", "white", "white", "white"]
+    ;
 
-let backgroundImages = [null, "url('images/levels/lvl-1.jpg')", 
-                              "url('images/levels/lvl-2.jpg')",
-                              "url('images/levels/lvl-3.jpg')",
-                              "url('images/levels/lvl-4.jpg')",
-                              "url('images/levels/lvl-5.jpg')",
-                              "url('images/levels/lvl-6.jpg')"];
+initialize();
 
-canvas.style.background = backgroundImages[current_level];
+function initialize() {
+  x = 250;
+  y = 400;
+  pos = 250; // x position of mouse
+  scoreField = document.getElementById("score"); // reference to score Field
+  canvas = document.getElementById("main"); //reference to canvas
+  ctx = canvas.getContext("2d");
 
-//function to set image to background
-if (currentLevels == 1) {
-  // full value is provided
-  canvas.style.background = "url('images/levels/lvl-1.jpg')"; // change it
-} else if (currentLevels == 2) {
-  canvas.style.background = "url('images/levels/lvl-2.jpg')";
-} else if (currentLevels == 3) {
-  canvas.style.background = "url('images/levels/lvl-3.jpg')";
-} else if (currentLevels == 4) {
-  canvas.style.background = "url('images/levels/lvl-4.jpg')";
-} else if (currentLevels == 5) {
-  canvas.style.background = "url('images/levels/lvl-5.jpg')";
-} else if (currentLevels == 6) {
-  canvas.style.background = "url('images/levels/lvl-6.jpg')";
+  current_level = window.localStorage.getItem("current_level");
+  console.log(window.localStorage.getItem("current_level"));
+  current_level = current_level == null ? 1 : Number(current_level);
+
+  paddle = new Paddle(150, 15, ctx, canvas, paddle_ball_color[current_level]);
+  ball = new Ball(13, paddle_ball_color[current_level], x, y);
+
+  currentLevels = 3;
+  bricks = drawBricks(current_level);
+  gameStatus = "Playing";
+  powerUpBalls = [];
+  canvasBoundRect = canvas.getBoundingClientRect();
+  totalBricks = bricks.length;
+  canvas.style.background = backgroundImages[current_level];
+  canvas.style.backgroundSize = "500px 500px";
+  totalScore = 0;
+  setTimeout(() => {
+    playBackroundMusic();
+  }, 200);
+
+  canvas.addEventListener("click", () => {
+    game = setInterval(() => {
+      draw();
+    }, 20);
+  });
+
+  draw();
 }
-
-canvas.style.backgroundSize = "500px 500px";
-
-let totalScore = 0;
-setTimeout(() => {
-  playBackroundMusic();
-}, 200);
-
-let game;
-canvas.addEventListener("click", () => {
-  game = setInterval(() => {
-    draw();
-  }, 20);
-});
-
-draw();
 
 function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
-    console.log("Khatam");
+    if(totalBricks == 0) {
+      window.localStorage.setItem("current_level", String(current_level+1));
+      window.localStorage.getItem("current_level");
+    }
     pauseBackgroundMusic();
     playLevelComplete();
     clearInterval(game);

@@ -66,7 +66,7 @@ function level1Bricks() {
 }
 
 function level2Bricks() {
-  type = ["wood", "stone"];
+  type = ["wood", "rock"];
   const level2 = [
     [0, 0],
     [50, 0],
