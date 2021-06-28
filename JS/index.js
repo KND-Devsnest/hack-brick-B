@@ -94,9 +94,9 @@ function initialize() {
   canvas.style.backgroundSize = "cover";
   canvas.style.backgroundRepeat = "no-repeat";
   totalScore = 0;
-  // setTimeout(() => {
-  //   playBackroundMusic();
-  // }, 200);
+  setTimeout(() => {
+    playBackroundMusic();
+  });
 
   function startGame() {
     game = setInterval(() => {

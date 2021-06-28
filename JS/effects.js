@@ -53,7 +53,6 @@ muteUnmuteBg(window.localStorage.getItem('isMusicMute'));
 const playBackroundMusic = () => {
   bgm.play();
   bgm.volume = 0.2;
-  bgm.muted = false;
 };
 
 const pauseBackgroundMusic = () => {
