@@ -282,3 +282,72 @@
 .unmute.hidden {
   visibility: hidden;
 }
+
+/* Game-Won */
+
+/* <div class="game-won-wrapper">
+        <div class="game-won">
+          <h1 id="game-won-text">Game Won</h1>
+          Score:<h4 id="score"></h4>
+          <div class="next-level-btn"><div class="next-level-text">Next Level ></div></div>
+        </div>
+      </div> */
+
+.game-won-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.404);
+  cursor: pointer;
+  display: none;
+}
+
+.game-won {
+  position: absolute;
+  width: 60vh;
+  height: 35vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(253, 55, 105);
+  border: 10px solid white;
+  border-radius: 15px;
+  transform: rotate(-9deg);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.384);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 5vh;
+}
+
+.next-level-btn {
+  margin: 0 auto;
+  width: 35vh;
+  height: 15vh;
+  background: rgb(145, 35, 209);
+  border: 10px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  transform: rotate(-9deg);
+  text-align: center;
+  justify-content: center;
+}
+
+.next-level-btn:active {
+  transform: scale(0.97);
+  transition: all ease-out 0.2s;
+}
+
+.next-level-text {
+  color: whitesmoke;
+  font-size: 5vh;
+  user-select: none;
+  padding: 10px;
+}
