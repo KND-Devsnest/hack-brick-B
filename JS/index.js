@@ -3,20 +3,36 @@ let y = 400;
 let pos = 250; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
-let current_level = 5;
+let current_level = 4;
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
-const currentLevels = 1;
+const currentLevels = 5;
 const bricks = drawBricks(current_level);
 let gameStatus = "Playing";
 const powerUpBalls = [];
-
 const canvasBoundRect = canvas.getBoundingClientRect();
-
 console.log(bricks);
 let totalBricks = bricks.length;
+
+//function to set image to background
+if (currentLevels == 1) {
+  // full value is provided
+  canvas.style.background = "url('images/levels/lvl-1.jpg')"; // change it
+} else if (currentLevels == 2) {
+  canvas.style.background = "url('images/levels/lvl-2.jpg')";
+} else if (currentLevels == 3) {
+  canvas.style.background = "url('images/levels/lvl-3.jpg')";
+} else if (currentLevels == 4) {
+  canvas.style.background = "url('images/levels/lvl-4.jpg')";
+} else if (currentLevels == 4) {
+  canvas.style.background = "url('images/levels/lvl-5.jpg')";
+} else if (currentLevels == 5) {
+  canvas.style.background = "url('images/levels/lvl-6.jpg')";
+}
+
+canvas.style.backgroundSize = "500px 500px";
 
 let totalScore = 0;
 setTimeout(() => {
