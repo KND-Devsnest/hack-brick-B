@@ -16,10 +16,8 @@ let x,
   game,
   gameWonDiv,
   nextLvlBttn,
-
-  highestScore,
-  highestScorePlayer,
-  
+  gameOverDiv,
+  retryBttn,
   backgroundImages = [
     null,
     "url('images/levels/lvl-1.jpg')",
@@ -55,8 +53,10 @@ function initialize() {
   pos = 250; // x position of mouse
   scoreField = document.getElementById("score"); // reference to score Field
   canvas = document.getElementById("main"); //reference to canvas
-  gameWonDiv = document.querySelector(".game-won-wrapper");
-  nextLvlBttn = document.getElementById("next-lvl-btn");
+  gameWonDiv = document.querySelector('.game-won-wrapper');
+  nextLvlBttn = document.getElementById('next-lvl-btn');
+  gameOverDiv = document.querySelector('.game-over-wrapper');
+  retryBttn = document.getElementById('retry-btn');
   ctx = canvas.getContext("2d");
   currentLevels = 6;
   //current_level = window.localStorage.getItem("current_level");
@@ -68,7 +68,6 @@ function initialize() {
   ) {
     current_level = 1;
   }
-  console.log(current_level);
   current_level = current_level == null ? 1 : Number(current_level);
 
   highestScore = window.localStorage.getItem("highestScore"+current_level);
@@ -89,9 +88,9 @@ function initialize() {
   canvas.style.backgroundSize = "cover";
   canvas.style.backgroundRepeat = "no-repeat";
   totalScore = 0;
-  setTimeout(() => {
-    playBackroundMusic();
-  }, 200);
+  // setTimeout(() => {
+  //   playBackroundMusic();
+  // }, 200);
 
   function startGame() {
     game = setInterval(() => {
@@ -132,6 +131,7 @@ function draw(evt) {
       playLevelComplete();
     } else {
       playLevelFail();
+      gameOverDiv.style.display = "block";
     }
     clearInterval(game);
     ctx.font = "48px sans-serif";
