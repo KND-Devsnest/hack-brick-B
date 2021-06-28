@@ -16,10 +16,9 @@ let x,
   game,
   gameWonDiv,
   nextLvlBttn,
+  highestscoreDisplayElement,
+  highestScoreArray = [];
 
-  highestScore,
-  highestScorePlayer,
-  
   backgroundImages = [
     null,
     "url('images/levels/lvl-1.jpg')",
@@ -57,21 +56,24 @@ function initialize() {
   canvas = document.getElementById("main"); //reference to canvas
   gameWonDiv = document.querySelector('.game-won-wrapper');
   nextLvlBttn = document.getElementById('next-lvl-btn');
+  highestscoreDisplayElement = document.getElementById("high-score");
   ctx = canvas.getContext("2d");
   currentLevels = 6;
+
   //current_level = window.localStorage.getItem("current_level");
   current_level = parseInt(window.location.search[1]);
   if( isNaN(current_level) || current_level < 1 || current_level > currentLevels){
     current_level = 1;
   }
-  console.log(current_level);
   current_level = current_level == null ? 1 : Number(current_level);
 
-  highestScore = window.localStorage.getItem("highestScore"+current_level);
-  if(highestScore == null)  highestScore = "N/A";
-
-  highestScorePlayer = window.localStorage.getItem("highestScore"+current_level+"Player");
-  if(highestScorePlayer == null) highestScorePlayer = "N/A";
+  highestScoreArray = window.localStorage.getItem("highestScore"+current_level);
+  if(highestScoreArray == null) {
+    highestScoreArray = [{name: "N/A", score: "N/A"}];
+  } else {
+    highestScoreArray = JSON.parse(highestScoreArray);
+  }
+  highestscoreDisplayElement.innerHTML = highestScoreArray[0].score;
 
   paddle = new Paddle(150, 15, 10, ctx, canvas, paddle_color[current_level]);
   ball = new Ball(13, paddle_ball_color[current_level], x, y);
@@ -106,13 +108,16 @@ function draw(evt) {
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
     pauseBackgroundMusic();
-
-    if(totalScore > highestScore) {
-      // Save highestScore for this level
-      window.localStorage.setItem("highestScore"+current_level, String(totalScore));
-
-      //Save name of player
-      window.localStorage.setItem("highestScore"+current_level+"Player", window.localStorage.getItem("currentPlayer"))
+    let currentPlayerName = window.localStorage.getItem("currentPlayer");
+    if(highestScoreArray[0].score == "N/A" || totalScore > highestScoreArray[0].score) {
+      if(highestScoreArray[0].score == "N/A") highestScoreArray = [];
+        
+      highestScoreArray.push({name: currentPlayerName, score: totalScore});
+      highestScoreArray = highestScoreArray.sort((item1, item2) => {
+        return item1.score <= item2.score;
+      })
+      console.log(highestScoreArray)
+      window.localStorage.setItem("highestScore"+current_level, JSON.stringify(highestScoreArray));
     }
 
     if (totalBricks == 0) {
