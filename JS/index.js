@@ -116,16 +116,12 @@ function draw(evt) {
   if (totalBricks == 0 || gameStatus === "Game Over") {
     pauseBackgroundMusic();
     let currentPlayerName = window.localStorage.getItem("currentPlayer");
-    if(highestScoreArray[0].score == "N/A" || totalScore > highestScoreArray[0].score) {
-      if(highestScoreArray[0].score == "N/A") highestScoreArray = [];
-        
-      highestScoreArray.push({name: currentPlayerName, score: totalScore});
-      highestScoreArray = highestScoreArray.sort((item1, item2) => {
-        return item1.score <= item2.score;
-      })
-      console.log(highestScoreArray)
-      window.localStorage.setItem("highestScore"+current_level, JSON.stringify(highestScoreArray));
-    }
+
+    if(highestScoreArray[0].score == "N/A") highestScoreArray = [];
+    highestScoreArray.push({name: currentPlayerName, score: totalScore});
+    highestScoreArray.sort((item1, item2) => Number(item2.score) - Number(item1.score));
+
+    window.localStorage.setItem("highestScore"+current_level, JSON.stringify(highestScoreArray));
 
     if (totalBricks == 0) {
       console.log(totalScore);
@@ -165,6 +161,7 @@ function draw(evt) {
         } else if (collision[0] === "left" && ball.xSpeed > 0) {
           ball.xSpeed *= -1;
         }
+
         if (collision[1] <= 0) {
           if (bricks[i].powerType != null) {
             powerUpBalls.push(
