@@ -18,8 +18,8 @@ class Ball {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
     ctx.beginPath();
-
     ctx.fillStyle = this.color;
+    console.log(this.color);
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
   }

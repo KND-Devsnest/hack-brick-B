@@ -22,7 +22,8 @@ let x,
       "url('images/levels/lvl-5.jpg')",
       "url('images/levels/lvl-6.jpg')"
     ],
-    paddle_ball_color = [null, "white", "white", "white", "white", "white", "white"]
+    paddle_ball_color = [null, "black", "white", "white", "white", "white", "white"],
+    paddle_color = [null, "black", "black", "white", "white", "white", "white"]
     ;
 
 initialize();
@@ -39,7 +40,7 @@ function initialize() {
   console.log(window.localStorage.getItem("current_level"));
   current_level = current_level == null ? 1 : Number(current_level);
 
-  paddle = new Paddle(150, 15, ctx, canvas, paddle_ball_color[current_level]);
+  paddle = new Paddle(150, 15, ctx, canvas, paddle_color[current_level]);
   ball = new Ball(13, paddle_ball_color[current_level], x, y);
 
   currentLevels = 3;
