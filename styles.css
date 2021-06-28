@@ -186,12 +186,14 @@
 .labl > input + div {
   /* DIV STYLES */
   cursor: pointer;
+  transition: all ease-in 0.2s;
 }
 .labl > input:checked + div {
   /* (RADIO CHECKED) DIV STYLES */
   background: #fcf2df;
   transform: scale(1.1);
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.15);
+  transition: all ease-out 0.2s;
 }
 
 .volumewrapper-home {

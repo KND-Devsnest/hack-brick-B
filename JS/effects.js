@@ -81,7 +81,8 @@ const playPowerUp = () => {
 };
 
 const pressButton = () => {
-  fx.src = "./sounds/uiSounds/button.mp3";
+  fx.src = "./sounds/uiSounds/button.wav";
+  fx.muted = false;
   fx.play();
 };
 
