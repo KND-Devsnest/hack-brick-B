@@ -2,7 +2,9 @@ const level_bg = [
   "images/levels/lvl-1.jpg",
   "images/levels/lvl-2.jpg",
   "images/levels/lvl-3.jpg",
-  "images/levels/lvl-1.jpg",
+  "images/levels/lvl-4.jpg",
+  "images/levels/lvl-5.jpg",
+  "images/levels/lvl-6.jpg",
 ];
 function level1Bricks() {
   const level1 = [
@@ -415,6 +417,27 @@ function level5Bricks() {
   return bricks;
 }
 
+function level6Bricks() {
+  type = ["wood", "rock", "iron"];
+  let bricks = [];
+  for (let i = 0; i < 10; i++) {
+    let k = Math.floor(Math.random() * 10) + 1;
+    for (let j = 0; j < k; j++) {
+      bricks.push(
+        new Brick(
+          i * 50,
+          j * 25,
+          45,
+          20,
+          ctx,
+          type[Math.floor(Math.random() * 3)]
+        )
+      );
+    }
+  }
+  return bricks;
+}
+
 const level = [
   {},
   { getBricks: level1Bricks },
@@ -422,4 +445,5 @@ const level = [
   { getBricks: level3Bricks },
   { getBricks: level4Bricks },
   { getBricks: level5Bricks },
+  { getBricks: level6Bricks },
 ];

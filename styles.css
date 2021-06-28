@@ -13,7 +13,12 @@
     <input type="text" class="input-name" id="player-name" />
     <div class="start-game-btn"></div>
     <div class="level-container"></div> */
-
+.image_div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
 .home {
   position: relative;
   background-color: #9938d1;
@@ -182,7 +187,7 @@
 .game-container {
   position: absolute;
   top: 10%;
-  left: 10%;
+  left: 30%;
   height: 80vh;
   width: 80vh;
   border-radius: 15px;
@@ -198,7 +203,7 @@
   width: 40vh;
   position: absolute;
   top: 10%;
-  left: 60%;
+  left: 75%;
   display: flex;
   justify-content: safe;
   flex-direction: column;
@@ -281,4 +286,91 @@
 
 .unmute.hidden {
   visibility: hidden;
+}
+
+/* left-bar */
+.left-bar-wrapper {
+  position: absolute;
+  width: 40vh;
+  height: 80vh;
+  left: 7%;
+  top: 10%;
+}
+
+.left-bar {
+  background-color: white;
+  width: 90%;
+  height: 90%;
+  background-color: rgb(78, 241, 160);
+  border: 10px solid white;
+  border-radius: 15px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Game-Won */
+
+.game-won-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.404);
+  cursor: pointer;
+  display: none;
+}
+
+.game-won {
+  position: absolute;
+  width: 60vh;
+  height: 35vh;
+  top: 30%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(253, 55, 105);
+  border: 10px solid white;
+  border-radius: 15px;
+  transform: rotate(-9deg);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.384);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 5vh;
+}
+
+.next-level-btn {
+  margin: 0 auto;
+  width: 35vh;
+  height: 15vh;
+  background: rgb(145, 35, 209);
+  border: 10px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  transform: rotate(-9deg);
+  text-align: center;
+  justify-content: center;
+}
+
+.next-level-btn:active {
+  transform: scale(0.97);
+  transition: all ease-out 0.2s;
+}
+
+.next-level-text {
+  color: whitesmoke;
+  font-size: 5vh;
+  user-select: none;
+  padding: 10px;
+}
+
+/* canvas styling */
+canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }

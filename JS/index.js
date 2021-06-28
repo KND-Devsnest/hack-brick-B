@@ -1,31 +1,38 @@
-let x, 
-    y, 
-    pos, 
-    scoreField, 
-    canvas, 
-    ctx, 
-    paddle,
-    ball, 
-    currentLevels, 
-    bricks, 
-    gameStatus, 
-    powerUpBalls, 
-    canvasBoundRect, 
-    totalBricks, 
-    totalScore, 
-    game,
-    backgroundImages = [
-      null, "url('images/levels/lvl-1.jpg')",
-      "url('images/levels/lvl-2.jpg')",
-      "url('images/levels/lvl-3.jpg')",
-      "url('images/levels/lvl-4.jpg')",
-      "url('images/levels/lvl-5.jpg')",
-      "url('images/levels/lvl-6.jpg')"
-    ],
-    paddle_ball_color = [null, "black", "white", "white", "white", "white", "white"],
-    paddle_color = [null, "black", "black", "white", "white", "white", "white"]
-    ;
-
+let x,
+  y,
+  pos,
+  scoreField,
+  canvas,
+  ctx,
+  paddle,
+  ball,
+  currentLevels,
+  bricks,
+  gameStatus,
+  powerUpBalls,
+  canvasBoundRect,
+  totalBricks,
+  totalScore,
+  game,
+  backgroundImages = [
+    null,
+    "url('images/levels/lvl-1.jpg')",
+    "url('images/levels/lvl-2.jpg')",
+    "url('images/levels/lvl-3.jpg')",
+    "url('images/levels/lvl-4.jpg')",
+    "url('images/levels/lvl-5.jpg')",
+    "url('images/levels/lvl-6.jpg')",
+  ],
+  paddle_ball_color = [
+    null,
+    "black",
+    "white",
+    "white",
+    "white",
+    "white",
+    "white",
+  ],
+  paddle_color = [null, "black", "black", "white", "white", "white", "white"];
 initialize();
 
 function initialize() {
@@ -56,7 +63,7 @@ function initialize() {
     playBackroundMusic();
   }, 200);
 
-  function startGame(){
+  function startGame() {
     game = setInterval(() => {
       canvas.removeEventListener("click", startGame);
       draw();
@@ -73,11 +80,11 @@ function draw(evt) {
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
     pauseBackgroundMusic();
-    if(totalBricks == 0) {
-      window.localStorage.setItem("current_level", String(current_level+1));
+    if (totalBricks == 0) {
+      window.localStorage.setItem("current_level", String(current_level + 1));
       window.localStorage.getItem("current_level");
       playLevelComplete();
-    }else{
+    } else {
       playLevelFail();
     }
     clearInterval(game);
