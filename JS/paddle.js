@@ -6,10 +6,15 @@ class Paddle {
     this.radius = radius;
     this.canvas = canvas;
     this.color = color;
+    this.radius = radius;
     this.defaultColor = color;
     this.x = 175;
     this.y = 450;
   }
+
+  roundRect = function (x, y, width, height, radius) {
+    return this;
+  };
 
   render(pos, ctx) {
     // move paddle on mouse change -> access pos variable
@@ -20,7 +25,6 @@ class Paddle {
     } else {
       this.x = paddleXPos;
     }
-
     if (this.width < 2 * this.radius) this.radius = this.width / 2;
     if (this.height < 2 * this.radius) this.radius = this.height / 2;
     ctx.beginPath();
@@ -47,7 +51,6 @@ class Paddle {
     // ctx.fillStyle = this.color;
     // ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle for paddle
     //ctx.fill();
-
   }
 
   increase() {
