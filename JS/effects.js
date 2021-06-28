@@ -1,10 +1,24 @@
 const volumeDiv = document.querySelector(".volume");
 const muteDiv = document.querySelector(".unmute");
 
+console.log(window.localStorage.getItem('isMusicMute'))
+
+if (window.localStorage.getItem('isMusicMute') === undefined){
+  window.localStorage.setItem('isMusicMute', 0);
+  console.log("FAl")
+}
+
+
 volumeDiv.addEventListener("click", () => {
   muteDiv.classList.toggle("hidden");
-  if (bgm.paused) bgm.play();
-  else bgm.pause();
+  if(window.localStorage.getItem('isMusicMute') == 1){
+    //console.log("Unmuting");
+    window.localStorage.setItem('isMusicMute', 0);
+  }
+  else {
+    //console.log("Muting");
+    window.localStorage.setItem('isMusicMute',1);}
+  muteUnmuteBg(window.localStorage.getItem('isMusicMute'));
 });
 
 const fx = new Audio("./sounds/gameSounds/paddleHit.wav");
@@ -12,8 +26,8 @@ fx.autoplay = true;
 fx.muted = true;
 
 const brickFx = new Audio("./sounds/gameSounds/woodBrickHit.wav");
-fx.autoplay = true;
-fx.muted = true;
+brickFx.autoplay = true;
+brickFx.muted = true;
 
 const bgm = new Audio(
   document.title == "Home"
@@ -21,7 +35,14 @@ const bgm = new Audio(
     : "./sounds/gameSounds/Bloom.mp3"
 );
 bgm.autoplay = true;
-bgm.muted = true;
+
+function muteUnmuteBg(state){
+  console.log(state);
+  bgm.muted = state == 1;
+
+}
+
+muteUnmuteBg(window.localStorage.getItem('isMusicMute'));
 
 const playBackroundMusic = () => {
   bgm.play();

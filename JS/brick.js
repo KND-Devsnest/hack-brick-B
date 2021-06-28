@@ -1,5 +1,12 @@
-let powerUps = ["paddleIncrease", "paddleDecrease", "goThrough", "powerBall", "fastBall", "slowBall"];
-let powerCount = [null,25,25,25,25,25,25];
+let powerUps = [
+  "paddleIncrease",
+  "paddleDecrease",
+  "goThrough",
+  "powerBall",
+  "fastBall",
+  "slowBall",
+];
+let powerCount = [null, 25, 25, 25, 25, 25, 25];
 
 class Brick {
   constructor(x, y, width, height, ctx, type, currentLevel) {
@@ -14,7 +21,7 @@ class Brick {
     this.score = brickTypes[type]["score"];
     this.color = brickTypes[type]["color"];
     this.src = brickTypes[type]["src"];
-    this.soundFx = brickTypes[type]['soundFx']
+    this.soundFx = brickTypes[type]["soundFx"];
     this.powerType = (function () {
       //return powerUps[Math.floor(Math.random() * 2) + 1];
       if (powerCount[currentLevel] > 0 && Math.random() - 0.5 > 0) {
@@ -25,7 +32,6 @@ class Brick {
       }
       // Else return
       return null;
-      
     })();
   }
 
@@ -75,20 +81,20 @@ const brickTypes = {
     score: 1,
     hits: 1,
     src: "./images/texture/wood_1.png",
-    soundFx: "./sounds/gameSounds/woodBrickHit.wav"
+    soundFx: "./sounds/gameSounds/woodBrickHit.wav",
   },
   rock: {
     color: { r: 173, g: 35, b: 54 },
     score: 2,
     hits: 3,
     src: "./images/texture/stone_1.jpg",
-    soundFx: "./sounds/gameSounds/rockBrickHit1.wav"
+    soundFx: "./sounds/gameSounds/rockBrickHit1.wav",
   },
   iron: {
     color: { r: 192, g: 192, b: 192 },
     score: 3,
     hits: 4,
     src: "./images/texture/iron_1.png",
-    soundFx: "./sounds/gameSounds/ironBrickHit.wav"
+    soundFx: "./sounds/gameSounds/ironBrickHit.wav",
   },
 };
