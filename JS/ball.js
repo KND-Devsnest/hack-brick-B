@@ -98,7 +98,7 @@ class Ball {
 
   increaseSpeed() {
     if (false) return;
-    this.ySpeed = this.ySpeed < 0 ? -10 : 10;
+    this.ySpeed = this.ySpeed < 0 ? -12 : 12;
     this.color = "#ff8a00";
     document.querySelector('.fast-ball').classList.add('active-power');
     setTimeout(() => {

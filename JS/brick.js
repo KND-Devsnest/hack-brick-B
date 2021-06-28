@@ -28,7 +28,7 @@ class Brick {
         //Provide   a powerUp
         --powerCount[currentLevel];
         //console.log(x, y);
-        return powerUps[Math.floor(Math.random() * 4)];
+        return powerUps[Math.floor(Math.random() * 6)];
       }
       // Else return
       return null;
