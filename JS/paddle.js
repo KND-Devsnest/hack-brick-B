@@ -20,8 +20,9 @@ class Paddle {
     }
 
     ctx.fillStyle = this.color;
+    console.log(this.color);
     ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle for paddle
-    ctx.fill();
+    //ctx.fill();
   }
 
   increase() {

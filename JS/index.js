@@ -25,13 +25,14 @@ let x,
   ],
   paddle_ball_color = [
     null,
-    ["white", "black"],
-    ["yellow", "red"],
-    ["green", "blue"],
-    ["silver", "gold"],
-    ["cyan", "magenta"],
-    ["red", "black"],
-  ];
+    "black",
+    "white",
+    "white",
+    "white",
+    "white",
+    "white",
+  ],
+  paddle_color = [null, "black", "black", "white", "white", "white", "white"];
 initialize();
 
 function initialize() {
@@ -46,16 +47,8 @@ function initialize() {
   console.log(window.localStorage.getItem("current_level"));
   current_level = current_level == null ? 1 : Number(current_level);
 
-  paddle = new Paddle(
-    150,
-    15,
-    ctx,
-    canvas,
-    paddle_ball_color[current_level][0]
-  );
-  console.log(paddle_ball_color[current_level][0]);
-  ball = new Ball(13, paddle_ball_color[current_level][1], x, y);
-  console.log(paddle_ball_color[current_level][1]);
+  paddle = new Paddle(150, 15, ctx, canvas, paddle_color[current_level]);
+  ball = new Ball(13, paddle_ball_color[current_level], x, y);
 
   currentLevels = 3;
   bricks = drawBricks(current_level);
@@ -70,11 +63,14 @@ function initialize() {
     playBackroundMusic();
   }, 200);
 
-  canvas.addEventListener("click", () => {
+  function startGame() {
     game = setInterval(() => {
+      canvas.removeEventListener("click", startGame);
       draw();
     }, 20);
-  });
+  }
+
+  canvas.addEventListener("click", startGame);
 
   draw();
 }
@@ -83,12 +79,14 @@ function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
+    pauseBackgroundMusic();
     if (totalBricks == 0) {
       window.localStorage.setItem("current_level", String(current_level + 1));
       window.localStorage.getItem("current_level");
+      playLevelComplete();
+    } else {
+      playLevelFail();
     }
-    pauseBackgroundMusic();
-    playLevelComplete();
     clearInterval(game);
     ctx.font = "48px sans-serif";
     ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250);
