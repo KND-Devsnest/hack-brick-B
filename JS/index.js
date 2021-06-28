@@ -16,14 +16,10 @@ let x,
   game,
   gameWonDiv,
   nextLvlBttn,
-<<<<<<< HEAD
   highestscoreDisplayElement,
-  highestScoreArray = [];
-
-=======
+  highestScoreArray = [],
   gameOverDiv,
   retryBttn,
->>>>>>> a3d9ec6708b3d02f9cca4642e63474bd022f4453
   backgroundImages = [
     null,
     "url('images/levels/lvl-1.jpg')",
@@ -61,12 +57,9 @@ function initialize() {
   canvas = document.getElementById("main"); //reference to canvas
   gameWonDiv = document.querySelector('.game-won-wrapper');
   nextLvlBttn = document.getElementById('next-lvl-btn');
-<<<<<<< HEAD
   highestscoreDisplayElement = document.getElementById("high-score");
-=======
   gameOverDiv = document.querySelector('.game-over-wrapper');
   retryBttn = document.getElementById('retry-btn');
->>>>>>> a3d9ec6708b3d02f9cca4642e63474bd022f4453
   ctx = canvas.getContext("2d");
   currentLevels = 6;
 
