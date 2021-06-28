@@ -16,7 +16,18 @@
   </head>
   <body class="main">
     <div class="left-bar-wrapper">
-      <div class="left-bar"></div>
+      <div class="left-bar">
+        <div class="powerup-container"><h2 id="text">Power Ups!</h2><div class="line"></div>
+          <ul>
+            <li>o - power 1</li>
+            <li>o - power 2</li>
+            <li>o - power 3</li>
+            <li>o - power 4</li>
+            <li>o - power 5</li>
+          </ul>
+        </div>
+          <div class="how-to-play"></div>
+      </div>
     </div>
       <div class="volumewrapper">
       <div class="volume">
@@ -34,8 +45,8 @@
       </div>
       <div class="side-sec">
         <div class="misc">
-          <div class="score-container"><h2>Score</h2><div id="score"></div></div>
-          <div class="how-to-play"></div>
+          <div class="score-container"><h2 id="text">Score</h2><div class="line"></div><div id="score"></div></div>
+          <div class="high-score-container"><h2 id="text">High-Score</h2><div class="line"></div><div id="score"></div></div>
         </div>
         <div class="exit-btn"><a href="./index.html"><p class="exit-text"><-Exit!</p></div></a>
       </div>
@@ -44,6 +55,13 @@
           <h1 id="game-won-text">Game Won</h1>
           Score:<h4 id="score"></h4>
           <div class="next-level-btn"><div class="next-level-text">Next Level ></div></div>
+        </div>
+      </div>
+      <div class="game-over-wrapper">
+        <div class="game-over">
+          <h1 id="game-over-text">Game Over!</h1>
+          Score:<h4 id="score"></h4>
+          <div class="retry-btn"><div class="retry-text">Retry?</div></div>
         </div>
       </div>
     <!--[if lt IE 7]>
