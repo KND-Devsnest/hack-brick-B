@@ -1,3 +1,9 @@
+const level_bg = [
+  "images/levels/lvl-1.jpg",
+  "images/levels/lvl-2.jpg",
+  "images/levels/lvl-3.jpg",
+  "images/levels/lvl-1.jpg",
+];
 function level1Bricks() {
   const level1 = [
     [0, 0],
@@ -60,7 +66,7 @@ function level1Bricks() {
 }
 
 function level2Bricks() {
-  type = ["wood", "stone"];
+  type = ["wood", "rock"];
   const level2 = [
     [0, 0],
     [50, 0],

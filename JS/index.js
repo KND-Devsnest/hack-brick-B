@@ -1,42 +1,84 @@
-let x = 250;
-let y = 400;
-let pos = 250; // x position of mouse
-const scoreField = document.getElementById("score");
-const canvas = document.getElementById("main");
-let current_level = 6;
-const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
-const ctx = canvas.getContext("2d");
-const paddle = new Paddle(150, 15, ctx, canvas);
-const ball = new Ball(13, "black", x, y);
-const currentLevels = 1;
-const bricks = drawBricks(current_level);
-let gameStatus = "Playing";
-const powerUpBalls = [];
+let x,
+  y,
+  pos,
+  scoreField,
+  canvas,
+  ctx,
+  paddle,
+  ball,
+  currentLevels,
+  bricks,
+  gameStatus,
+  powerUpBalls,
+  canvasBoundRect,
+  totalBricks,
+  totalScore,
+  game,
+  backgroundImages = [
+    null,
+    "url('images/levels/lvl-1.jpg')",
+    "url('images/levels/lvl-2.jpg')",
+    "url('images/levels/lvl-3.jpg')",
+    "url('images/levels/lvl-4.jpg')",
+    "url('images/levels/lvl-5.jpg')",
+    "url('images/levels/lvl-6.jpg')",
+  ],
+  paddle_ball_color = [
+    null,
+    "white",
+    "white",
+    "white",
+    "white",
+    "white",
+    "white",
+  ];
+initialize();
 
-const canvasBoundRect = canvas.getBoundingClientRect();
+function initialize() {
+  x = 250;
+  y = 400;
+  pos = 250; // x position of mouse
+  scoreField = document.getElementById("score"); // reference to score Field
+  canvas = document.getElementById("main"); //reference to canvas
+  ctx = canvas.getContext("2d");
 
-console.log(bricks);
-let totalBricks = bricks.length;
+  current_level = window.localStorage.getItem("current_level");
+  console.log(window.localStorage.getItem("current_level"));
+  current_level = current_level == null ? 1 : Number(current_level);
 
-let totalScore = 0;
-setTimeout(() => {
-  playBackroundMusic();
-}, 200);
+  paddle = new Paddle(150, 15, ctx, canvas, paddle_ball_color[current_level]);
+  ball = new Ball(13, paddle_ball_color[current_level], x, y);
 
-let game;
-canvas.addEventListener("click", () => {
-  game = setInterval(() => {
-    draw();
-  }, 20);
-});
+  currentLevels = 3;
+  bricks = drawBricks(current_level);
+  gameStatus = "Playing";
+  powerUpBalls = [];
+  canvasBoundRect = canvas.getBoundingClientRect();
+  totalBricks = bricks.length;
+  canvas.style.background = backgroundImages[current_level];
+  canvas.style.backgroundSize = "500px 500px";
+  totalScore = 0;
+  setTimeout(() => {
+    playBackroundMusic();
+  }, 200);
 
-draw();
+  canvas.addEventListener("click", () => {
+    game = setInterval(() => {
+      draw();
+    }, 20);
+  });
+
+  draw();
+}
 
 function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
-    console.log("Khatam");
+    if (totalBricks == 0) {
+      window.localStorage.setItem("current_level", String(current_level + 1));
+      window.localStorage.getItem("current_level");
+    }
     pauseBackgroundMusic();
     playLevelComplete();
     clearInterval(game);

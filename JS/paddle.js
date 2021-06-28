@@ -1,10 +1,10 @@
 class Paddle {
-  constructor(width, height, ctx, canvas) {
+  constructor(width, height, ctx, canvas, color) {
     this.width = width;
     this.height = height;
     this.ctx = ctx;
     this.canvas = canvas;
-
+    this.color = color;
     this.x = 175;
     this.y = 450;
   }
@@ -19,10 +19,8 @@ class Paddle {
       this.x = paddleXPos;
     }
 
-    ctx.beginPath();
-
-    ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle
-    ctx.fillStyle = "black";
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height); // create rectangle for paddle
     ctx.fill();
   }
 
