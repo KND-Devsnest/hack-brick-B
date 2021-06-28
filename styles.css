@@ -394,7 +394,7 @@
 .game-over {
   position: absolute;
   width: 60vh;
-  height: 35vh;
+  height: 45vh;
   top: 30%;
   left: 34%;
   transform: translate(-50%, -50%);
