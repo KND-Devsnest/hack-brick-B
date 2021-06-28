@@ -1,44 +1,48 @@
 let x = 250;
-let y = 415;
-let pos; // x position of mouse
+let y = 400;
+let pos = 250; // x position of mouse
 const scoreField = document.getElementById("score");
 const canvas = document.getElementById("main");
-let current_level = 1;
+let current_level = 5;
 const level1 = ["100", "110", "120", "130", "140", "150", "160", "170"];
 const ctx = canvas.getContext("2d");
 const paddle = new Paddle(150, 15, ctx, canvas);
 const ball = new Ball(13, "black", x, y);
-const currentLevels = 2;
+const currentLevels = 1;
 const bricks = drawBricks(current_level);
-
+let gameStatus = "Playing";
 const powerUpBalls = [];
 
 const canvasBoundRect = canvas.getBoundingClientRect();
-pos = 250;
 
+console.log(bricks);
 let totalBricks = bricks.length;
 
 let totalScore = 0;
+
+setTimeout(() => {
+  playBackroundMusic();
+}, 200);
+
 let game;
 canvas.addEventListener("click", () => {
   game = setInterval(() => {
     draw();
   }, 20);
 });
-draw();
 
-setTimeout(() => {
-  playBackroundMusic();
-}, 200);
+draw();
 
 function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (totalBricks == 0) {
+  if (totalBricks == 0 || gameStatus === "Game Over") {
     console.log("Khatam");
     pauseBackgroundMusic();
     playLevelComplete();
     clearInterval(game);
+    ctx.font = "48px sans-serif";
+    ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250);
     return;
   }
 
@@ -46,7 +50,7 @@ function draw(evt) {
     if (bricks[i] !== 0) {
       bricks[i].render();
       let collision = bricks[i].checkCollision(ball);
-      if (collision != null){
+      if (collision != null) {
         totalScore += bricks[i].score;
 
         if (collision[0] === "down" && ball.ySpeed < 0) {
@@ -58,14 +62,24 @@ function draw(evt) {
         } else if (collision[0] === "left" && ball.xSpeed > 0) {
           ball.xSpeed *= -1;
         }
-        if (collision[1] <= 0){
-          if (bricks[i].powerType != null){
-            powerUpBalls.push(new Ball(10, "blue", bricks[i].x + Math.floor(bricks[i].width/2), bricks[i].y + bricks[i].height, bricks[i].powerType, 0, 4));
+        if (collision[1] <= 0) {
+          if (bricks[i].powerType != null) {
+            powerUpBalls.push(
+              new Ball(
+                10,
+                "blue",
+                bricks[i].x + Math.floor(bricks[i].width / 2),
+                bricks[i].y + bricks[i].height,
+                bricks[i].powerType,
+                0,
+                4
+              )
+            );
           }
           totalBricks -= 1;
           bricks[i] = 0;
         }
-      } 
+      }
     }
   }
 
@@ -73,10 +87,10 @@ function draw(evt) {
   paddle.render(pos, ctx);
   ball.changeDirection(paddle);
 
-  for( let i in powerUpBalls){
+  for (let i in powerUpBalls) {
     if (!powerUpBalls[i].isActive) continue;
     powerUpBalls[i].render(ctx);
-    if (powerUpBalls[i].changeDirection(paddle, ball)){
+    if (powerUpBalls[i].changeDirection(paddle, ball)) {
       powerUpBalls[i].isActive = false;
     }
   }
