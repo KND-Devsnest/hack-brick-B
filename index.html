@@ -22,8 +22,12 @@
       </div>
       <div class="line"></div>
       <div class="score-board-entries">
-        <div class="p-names"></div>
-        <div class="p-hscore"></div>
+        <div class="p-names">
+          <ol id="player-names"></ol>
+        </div>
+        <div class="p-hscore">
+          <ol id="player-scores"></ol>
+        </div>
       </div>
     </div>
     <div class="start-wrapper">
@@ -44,6 +48,7 @@
           onclick="handleSelect(`${Math.floor(Math.random()*6)+1}`)"
         />
         <div class="level-card">
+          <h6 class="level_name">?</h6>
           <img class="image_div" src="images/preview/f.png" />
         </div>
       </label>
@@ -55,6 +60,7 @@
           onclick="handleSelect(1)"
         />
         <div class="level-card">
+          <h6 class="level_name">1</h6>
           <img class="image_div" src="images/preview/lvl_1.PNG" />
         </div>
       </label>
@@ -66,6 +72,7 @@
           onclick="handleSelect(2)"
         />
         <div class="level-card">
+          <h6 class="level_name">2</h6>
           <img class="image_div" src="images/preview/lvl_2.PNG" />
         </div>
       </label>
@@ -77,6 +84,7 @@
           onclick="handleSelect(3)"
         />
         <div class="level-card">
+          <h6 class="level_name">3</h6>
           <img class="image_div" src="images/preview/lvl_3.PNG" />
         </div>
       </label>
@@ -88,6 +96,7 @@
           onclick="handleSelect(4)"
         />
         <div class="level-card">
+          <h6 class="level_name">4</h6>
           <img class="image_div" src="images/preview/lvl_4.PNG" />
         </div>
       </label>
@@ -99,6 +108,7 @@
           onclick="handleSelect(5)"
         />
         <div class="level-card">
+          <h6 class="level_name">5</h6>
           <img class="image_div" src="images/preview/lvl_5.PNG" />
         </div>
       </label>
@@ -110,6 +120,7 @@
           onclick="handleSelect(6)"
         />
         <div class="level-card">
+          <h6 class="level_name">6</h6>
           <img class="image_div" src="images/preview/lvl_6.PNG" />
         </div>
       </label>

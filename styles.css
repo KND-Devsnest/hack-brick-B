@@ -26,7 +26,13 @@
   min-height: 100vh;
   overflow: hidden;
 }
-
+.level_name {
+  position: absolute;
+  font-size: 80px;
+  color: white;
+  z-index: 2;
+  padding-left: 80px;
+}
 .high-score-board {
   position: absolute;
   left: 10%;
