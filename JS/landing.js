@@ -1,7 +1,27 @@
 const startGameAnchor = document.getElementById('start-game');
+
+const playerNamesDisplayItem = document.getElementById('player-names');
+const playerScoresDisplayItem = document.getElementById('player-scores');
+
 const handleSelect = (level) => {
+    let scoreArray = window.localStorage.getItem("highestScore"+level);
+    playerNamesDisplayItem.innerHTML = "";
+    playerScoresDisplayItem.innerHTML = "";
+
     startGameAnchor.href = "./home.html?" + level;
-    console.log(startGameAnchor.href);
+
+    if(scoreArray == null)
+        scoreArray = [{name: "N/A", score: "N/A"}]
+    else
+        scoreArray = JSON.parse(scoreArray);
+
+    for(let i = 0; i < 5 && i < scoreArray.length; ++i) {
+        let name = document.createElement("li"), score = document.createElement("li");
+        name.innerHTML = scoreArray[i].name;
+        score.innerHTML = scoreArray[i].score;
+        playerNamesDisplayItem.appendChild(name);
+        playerScoresDisplayItem.appendChild(score);
+    }
 }
 
 const nameNameElement = document.getElementById('player-name');
