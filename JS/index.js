@@ -25,14 +25,14 @@ let x,
   ],
   paddle_ball_color = [
     null,
+    "red",
+    "white",
+    "white",
+    "white",
     "black",
     "white",
-    "white",
-    "white",
-    "white",
-    "white",
   ],
-  paddle_color = [null, "black", "black", "white", "white", "white", "white"];
+  paddle_color = [null, "black", "black", "white", "white", "black", "white"];
 initialize();
 
 function initialize() {
