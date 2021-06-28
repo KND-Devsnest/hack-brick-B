@@ -1,5 +1,6 @@
 let powerUps = ["paddleIncrease", "paddleDecrease", "goThrough", "powerBall"];
 let powerCount = 5;
+
 class Brick {
   constructor(x, y, width, height, ctx, type) {
     this.x = x;
@@ -9,6 +10,7 @@ class Brick {
     this.ctx = ctx;
     this.type = type;
     this.hit = brickTypes[type]["hits"];
+    this.MAXHITS = brickTypes[type]["hits"];
     this.score = brickTypes[type]["score"];
     this.color = brickTypes[type]["color"];
     this.src = brickTypes[type]["src"];
@@ -33,7 +35,7 @@ class Brick {
     // bg.onload = function () {
 
     // };
-    this.ctx.fillStyle = this.color;
+    this.ctx.fillStyle = `rgba(${this.color.r},${this.color.g},${this.color.b},${this.hit/this.MAXHITS})`;
     this.ctx.strokeStyle = "black";
     this.ctx.lineWidth = 0;
     this.ctx.stroke();
@@ -63,19 +65,19 @@ class Brick {
 
 const brickTypes = {
   wood: {
-    color: "#C19A6C",
+    color: {r:193, g:154, b: 108},
     score: 1,
     hits: 1,
     src: "./images/texture/wood_1.png",
   },
   rock: {
-    color: "#ad2336",
+    color: {r:173, g:35, b: 54},
     score: 2,
     hits: 3,
     src: "./images/texture/stone_1.jpg",
   },
   iron: {
-    color: "silver",
+    color: {r:192, g:192, b: 192},
     score: 3,
     hits: 4,
     src: "./images/texture/iron_1.png",
