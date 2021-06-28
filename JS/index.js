@@ -55,11 +55,14 @@ function initialize() {
     playBackroundMusic();
   }, 200);
 
-  canvas.addEventListener("click", () => {
+  function startGame(){
     game = setInterval(() => {
+      canvas.removeEventListener("click", startGame);
       draw();
     }, 20);
-  });
+  }
+
+  canvas.addEventListener("click", startGame);
 
   draw();
 }
@@ -68,12 +71,14 @@ function draw(evt) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
+    pauseBackgroundMusic();
     if(totalBricks == 0) {
       window.localStorage.setItem("current_level", String(current_level+1));
       window.localStorage.getItem("current_level");
+      playLevelComplete();
+    }else{
+      playLevelFail();
     }
-    pauseBackgroundMusic();
-    playLevelComplete();
     clearInterval(game);
     ctx.font = "48px sans-serif";
     ctx.fillText(totalBricks == 0 ? "Game Won!" : "Game Over!", 125, 250);
