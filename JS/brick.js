@@ -6,7 +6,7 @@ let powerUps = [
   "fastBall",
   "slowBall",
 ];
-let powerCount = [null, 25, 25, 25, 25, 25, 25];
+let powerCount = [null, 8, 8, 12, 12, 16, 16];
 
 class Brick {
   constructor(x, y, width, height, ctx, type, currentLevel) {

@@ -52,6 +52,7 @@
 }
 
 .score-board-header {
+  margin-top: 3vh;
   width: 90%;
   display: flex;
   align-items: center;
@@ -59,7 +60,17 @@
   font-size: 30px;
   font-weight: 600;
 }
-
+.score-board-entries {
+  margin-top: 2vh;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate(-10%);
+  font-size: 4vh;
+  color: rgb(31, 31, 31);
+}
 .start-wrapper {
   position: absolute;
   display: flex;
@@ -181,12 +192,14 @@
 .labl > input + div {
   /* DIV STYLES */
   cursor: pointer;
+  transition: all ease-in 0.2s;
 }
 .labl > input:checked + div {
   /* (RADIO CHECKED) DIV STYLES */
   background: #fcf2df;
   transform: scale(1.1);
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.15);
+  transition: all ease-out 0.2s;
 }
 
 .volumewrapper-home {
@@ -387,7 +400,7 @@
 .game-over {
   position: absolute;
   width: 60vh;
-  height: 35vh;
+  height: 45vh;
   top: 30%;
   left: 34%;
   transform: translate(-50%, -50%);
