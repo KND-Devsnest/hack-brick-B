@@ -28,11 +28,22 @@
         <input
           type="radio"
           name="radioname"
+          value="`${Math.floor(Math.random()*6)+1}`"
+          onclick="handleSelect(`${Math.floor(Math.random()*6)+1}`)"
+        />
+        <div class="level-card">
+          <img class="image_div" src="images/preview/f.png" />
+        </div>
+      </label>
+      <label class="labl">
+        <input
+          type="radio"
+          name="radioname"
           value="1"
           onclick="handleSelect(1)"
         />
         <div class="level-card">
-          <img class="image_div" src="images/preview/f.png" />
+          <img class="image_div" src="images/preview/lvl_1.PNG" />
         </div>
       </label>
       <label class="labl">
@@ -43,7 +54,7 @@
           onclick="handleSelect(2)"
         />
         <div class="level-card">
-          <img class="image_div" src="images/preview/lvl_1.PNG" />
+          <img class="image_div" src="images/preview/lvl_2.PNG" />
         </div>
       </label>
       <label class="labl">
@@ -54,7 +65,7 @@
           onclick="handleSelect(3)"
         />
         <div class="level-card">
-          <img class="image_div" src="images/preview/lvl_2.PNG" />
+          <img class="image_div" src="images/preview/lvl_3.PNG" />
         </div>
       </label>
       <label class="labl">
@@ -65,7 +76,7 @@
           onclick="handleSelect(4)"
         />
         <div class="level-card">
-          <img class="image_div" src="images/preview/lvl_3.PNG" />
+          <img class="image_div" src="images/preview/lvl_4.PNG" />
         </div>
       </label>
       <label class="labl">
@@ -76,7 +87,7 @@
           onclick="handleSelect(5)"
         />
         <div class="level-card">
-          <img class="image_div" src="images/preview/lvl_4.PNG" />
+          <img class="image_div" src="images/preview/lvl_5.PNG" />
         </div>
       </label>
       <label class="labl">
@@ -86,12 +97,6 @@
           value="6"
           onclick="handleSelect(6)"
         />
-        <div class="level-card">
-          <img class="image_div" src="images/preview/lvl_5.PNG" />
-        </div>
-      </label>
-      <label class="labl">
-        <input type="radio" name="radioname" value="6" />
         <div class="level-card">
           <img class="image_div" src="images/preview/lvl_6.PNG" />
         </div>
