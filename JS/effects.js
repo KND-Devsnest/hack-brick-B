@@ -10,14 +10,16 @@ if (window.localStorage.getItem('isMusicMute') === undefined){
 
 
 volumeDiv.addEventListener("click", () => {
-  muteDiv.classList.toggle("hidden");
   if(window.localStorage.getItem('isMusicMute') == 1){
     //console.log("Unmuting");
     window.localStorage.setItem('isMusicMute', 0);
+    muteDiv.classList.add("hidden");
   }
   else {
     //console.log("Muting");
-    window.localStorage.setItem('isMusicMute',1);}
+    window.localStorage.setItem('isMusicMute',1);
+    muteDiv.classList.remove("hidden");
+  }
   muteUnmuteBg(window.localStorage.getItem('isMusicMute'));
 });
 
@@ -39,6 +41,10 @@ bgm.autoplay = true;
 function muteUnmuteBg(state){
   console.log(state);
   bgm.muted = state == 1;
+  if (state == 1)
+    muteDiv.classList.remove("hidden");
+  else
+    muteDiv.classList.add("hidden");
 
 }
 
