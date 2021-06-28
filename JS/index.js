@@ -14,6 +14,8 @@ let x,
   totalBricks,
   totalScore,
   game,
+  gameWonDiv,
+  nextLvlBttn,
   backgroundImages = [
     null,
     "url('images/levels/lvl-1.jpg')",
@@ -49,21 +51,27 @@ function initialize() {
   pos = 250; // x position of mouse
   scoreField = document.getElementById("score"); // reference to score Field
   canvas = document.getElementById("main"); //reference to canvas
+  gameWonDiv = document.querySelector('.game-won-wrapper');
+  nextLvlBttn = document.getElementById('next-lvl-btn');
   ctx = canvas.getContext("2d");
-
-  current_level = window.localStorage.getItem("current_level");
-  console.log(window.localStorage.getItem("current_level"));
+  currentLevels = 6;
+  //current_level = window.localStorage.getItem("current_level");
+  current_level = parseInt(window.location.search[1]);
+  if( isNaN(current_level) || current_level < 1 || current_level > currentLevels){
+    current_level = 1;
+  }
+  console.log(current_level);
   current_level = current_level == null ? 1 : Number(current_level);
 
-  paddle = new Paddle(150, 15, ctx, canvas, paddle_color[current_level]);
+  paddle = new Paddle(150, 15, 10, ctx, canvas, paddle_color[current_level]);
   ball = new Ball(13, paddle_ball_color[current_level], x, y);
 
-  currentLevels = 3;
   bricks = drawBricks(current_level);
   gameStatus = "Playing";
   powerUpBalls = [];
   canvasBoundRect = canvas.getBoundingClientRect();
-  totalBricks = bricks.length;
+  totalBricks = 2;
+  //totalBricks = bricks.length;
   canvas.style.background = backgroundImages[current_level];
   canvas.style.backgroundSize = "cover";
   canvas.style.backgroundRepeat = "no-repeat";
@@ -90,8 +98,12 @@ function draw(evt) {
   if (totalBricks == 0 || gameStatus === "Game Over") {
     pauseBackgroundMusic();
     if (totalBricks == 0) {
+      console.log(totalScore);
+      document.getElementById('ttl-score').innerHTML = totalScore;
       window.localStorage.setItem("current_level", String(current_level + 1));
       window.localStorage.getItem("current_level");
+      nextLvlBttn.href = ++current_level > 6 ? "./index.html?game_won" : "./home.html?" + current_level;
+      gameWonDiv.style.display = "block";
       playLevelComplete();
     } else {
       playLevelFail();
