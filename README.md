@@ -4,17 +4,17 @@
 
 ### Table-Of-Contents :
 
-[Description](#description)  
+* [Description](#description)  
 
-[How to Play](#Play)
+* [How to Play](#Play)
 
-[Screenshots](#screen)
+* [Screenshots](#screen)
 
-[Click here to play](#link)
+* [Click here to play](#link)
 
-[Troubleshooting](#trouble)
+* [Troubleshooting](#trouble)
 
-<a href="#description">
+<a name="description" />
   
 #### Description :
 
@@ -22,7 +22,7 @@
 generated which can be bought down by varying number of hits in correspondance 
 to the type of tile the ball comes in contact with.
  
-  <a href="#Play">
+<a name="Play" />  
   
 #### How To Play :
   
@@ -30,4 +30,16 @@ to the type of tile the ball comes in contact with.
 
 To win the game, all the BRICKS must be eliminated.
   
-#### 
+ <a name="screen" />
+ 
+#### Screenshots of the game :
+
+  * Landing Page :- 
+     
+     <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Main.PNG" width=50% align="center" >
+     
+  * Levels Page :- 
+      
+     * ###### Level-1 :-
+     <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/LVL-1.PNG" width=50% ><center>
+    
