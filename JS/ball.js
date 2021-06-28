@@ -45,7 +45,7 @@ class Ball {
       this.x + this.radius >= paddle.x &&
       this.x - this.radius <= paddle.x + paddle.width &&
       this.y + this.radius >= paddle.y &&
-      this.y + this.radius <= paddle.y + paddle.height && 
+      this.y + this.radius <= paddle.y + paddle.height &&
       this.ySpeed > 0
     ) {
       playPaddleHit();
@@ -61,10 +61,10 @@ class Ball {
       } else if (this.powerUp == "powerBall") {
         mainBall.increaseStrength();
         return true;
-      } else if (this.powerUp == "fastBall"){
+      } else if (this.powerUp == "fastBall") {
         mainBall.increaseSpeed();
         return true;
-      }else if (this.powerUp == "slowBall"){
+      } else if (this.powerUp == "slowBall") {
         mainBall.decreaseSpeed();
         return true;
       }
@@ -75,7 +75,7 @@ class Ball {
   becomeGoThrough() {
     if (this.isGoThrough) return;
     this.isGoThrough = true;
-    this.color = "blue";
+    this.color = "#69d2ff";
     setTimeout(() => {
       this.isGoThrough = false;
       this.color = this.defaultColor;
@@ -85,30 +85,30 @@ class Ball {
   increaseStrength() {
     if (this.strength >= 3) return;
     this.strength += 2;
-    this.color = "grey";
+    this.color = "#ea69ff";
     setTimeout(() => {
       this.strength = 1;
       this.color = this.defaultColor;
     }, 5000);
   }
 
-  increaseSpeed(){
+  increaseSpeed() {
     if (false) return;
     this.ySpeed = this.ySpeed < 0 ? -10 : 10;
-    this.color = "red"
+    this.color = "#ff8a00";
     setTimeout(() => {
       this.ySpeed = this.ySpeed < 0 ? -8 : 8;
       this.color = this.defaultColor;
-    }, 4000)
+    }, 4000);
   }
 
-  decreaseSpeed(){
+  decreaseSpeed() {
     if (false) return;
     this.ySpeed = this.ySpeed < 0 ? -6 : 6;
-    this.color = "yellow"
+    this.color = "#67dc65";
     setTimeout(() => {
       this.ySpeed = this.ySpeed < 0 ? -8 : 8;
       this.color = this.defaultColor;
-    }, 4000)
+    }, 4000);
   }
 }
