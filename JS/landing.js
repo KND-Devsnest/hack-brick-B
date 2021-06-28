@@ -22,10 +22,13 @@ const handleSelect = (level) => {
         playerNamesDisplayItem.appendChild(name);
         playerScoresDisplayItem.appendChild(score);
     }
+    console.log(startGameAnchor.href);
+    pressButton();
 }
 
 const nameNameElement = document.getElementById('player-name');
 const savePlayerName = () => {
+    pressButton();
     let name = nameNameElement.value.trim();
     window.localStorage.setItem("currentPlayer", name == "" ? "Guest": name);
 }

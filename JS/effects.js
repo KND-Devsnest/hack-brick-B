@@ -25,7 +25,6 @@ volumeDiv.addEventListener("click", () => {
 
 const fx = new Audio("./sounds/gameSounds/paddleHit.wav");
 fx.autoplay = true;
-fx.muted = true;
 
 const brickFx = new Audio("./sounds/gameSounds/woodBrickHit.wav");
 brickFx.autoplay = true;
@@ -81,7 +80,7 @@ const playPowerUp = () => {
 };
 
 const pressButton = () => {
-  fx.src = "./sounds/uiSounds/button.mp3";
+  fx.src = "./sounds/uiSounds/button.wav";
   fx.play();
 };
 

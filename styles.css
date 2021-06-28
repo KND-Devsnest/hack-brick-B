@@ -26,7 +26,13 @@
   min-height: 100vh;
   overflow: hidden;
 }
-
+.level_name {
+  position: absolute;
+  font-size: 80px;
+  color: white;
+  z-index: 2;
+  padding-left: 80px;
+}
 .high-score-board {
   position: absolute;
   left: 10%;
@@ -186,12 +192,14 @@
 .labl > input + div {
   /* DIV STYLES */
   cursor: pointer;
+  transition: all ease-in 0.2s;
 }
 .labl > input:checked + div {
   /* (RADIO CHECKED) DIV STYLES */
   background: #fcf2df;
   transform: scale(1.1);
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.15);
+  transition: all ease-out 0.2s;
 }
 
 .volumewrapper-home {
@@ -392,7 +400,7 @@
 .game-over {
   position: absolute;
   width: 60vh;
-  height: 35vh;
+  height: 45vh;
   top: 30%;
   left: 34%;
   transform: translate(-50%, -50%);
