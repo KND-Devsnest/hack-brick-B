@@ -12,7 +12,7 @@
 
 * [Click here to play](#link)
 
-* [Troubleshooting](#trouble)
+* [Features](#trouble)
 
 <a name="description" />
   
@@ -39,7 +39,25 @@ To win the game, all the BRICKS must be eliminated.
      <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Main.PNG" width=50% align="center" >
      
   * Levels Page :- 
-      
-     * ###### Level-1 :-
+  
      <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/LVL-1.PNG" width=50% ><center>
+      
+  * Game-won Page :-
+     
+     <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Game-won.PNG" width=50% ><center>  
+       
+  * Game-over Page :-
+     
+     <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Game-over.PNG" width=50% ><center>
+ 
+#### Feature :      
+  * Power-ups tab :-
+     
+     <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Power-ups.PNG" width=50% ><center>
+  
+  * Highscore tab :-
+     
+    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Game-over.PNG" width="100" height="80" />
+       
+  * ###### And more click to play !!!! :- https://knd-devsnest.github.io/hack-brick-B/   
     
