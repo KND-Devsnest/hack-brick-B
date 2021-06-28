@@ -16,6 +16,10 @@ let x,
   game,
   gameWonDiv,
   nextLvlBttn,
+
+  highestScore,
+  highestScorePlayer,
+  
   backgroundImages = [
     null,
     "url('images/levels/lvl-1.jpg')",
@@ -67,6 +71,12 @@ function initialize() {
   console.log(current_level);
   current_level = current_level == null ? 1 : Number(current_level);
 
+  highestScore = window.localStorage.getItem("highestScore"+current_level);
+  if(highestScore == null)  highestScore = "N/A";
+
+  highestScorePlayer = window.localStorage.getItem("highestScore"+current_level+"Player");
+  if(highestScorePlayer == null) highestScorePlayer = "N/A";
+
   paddle = new Paddle(150, 15, 10, ctx, canvas, paddle_color[current_level]);
   ball = new Ball(13, paddle_ball_color[current_level], x, y);
 
@@ -74,7 +84,6 @@ function initialize() {
   gameStatus = "Playing";
   powerUpBalls = [];
   canvasBoundRect = canvas.getBoundingClientRect();
-  //totalBricks = 2;
   totalBricks = bricks.length;
   canvas.style.background = backgroundImages[current_level];
   canvas.style.backgroundSize = "cover";
@@ -101,6 +110,15 @@ function draw(evt) {
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
     pauseBackgroundMusic();
+
+    if(totalScore > highestScore) {
+      // Save highestScore for this level
+      window.localStorage.setItem("highestScore"+current_level, String(totalScore));
+
+      //Save name of player
+      window.localStorage.setItem("highestScore"+current_level+"Player", window.localStorage.getItem("currentPlayer"))
+    }
+
     if (totalBricks == 0) {
       console.log(totalScore);
       document.getElementById("ttl-score").innerHTML = totalScore;
