@@ -59,9 +59,9 @@ const pressButton = () => {
 };
 
 const playBrickHit = (brickType) => {
-  if(brickFx.paused) {  
+  if (brickFx.paused) {
     brickFx.muted = false;
-    brickFx.src = brickType
+    brickFx.src = brickType;
     brickFx.play();
   }
-}
+};
