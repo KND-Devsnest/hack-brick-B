@@ -25,12 +25,12 @@ let x,
   ],
   paddle_ball_color = [
     null,
-    "white",
-    "white",
-    "white",
-    "white",
-    "white",
-    "white",
+    ["white", "black"],
+    ["yellow", "red"],
+    ["green", "blue"],
+    ["silver", "gold"],
+    ["cyan", "magenta"],
+    ["red", "black"],
   ];
 initialize();
 
@@ -46,8 +46,16 @@ function initialize() {
   console.log(window.localStorage.getItem("current_level"));
   current_level = current_level == null ? 1 : Number(current_level);
 
-  paddle = new Paddle(150, 15, ctx, canvas, paddle_ball_color[current_level]);
-  ball = new Ball(13, paddle_ball_color[current_level], x, y);
+  paddle = new Paddle(
+    150,
+    15,
+    ctx,
+    canvas,
+    paddle_ball_color[current_level][0]
+  );
+  console.log(paddle_ball_color[current_level][0]);
+  ball = new Ball(13, paddle_ball_color[current_level][1], x, y);
+  console.log(paddle_ball_color[current_level][1]);
 
   currentLevels = 3;
   bricks = drawBricks(current_level);
