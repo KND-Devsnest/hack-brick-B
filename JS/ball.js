@@ -18,6 +18,10 @@ class Ball {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
     ctx.beginPath();
+    ctx.shadowColor = "black";
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
     ctx.fillStyle = this.color;
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
@@ -72,9 +76,11 @@ class Ball {
     if (this.isGoThrough) return;
     this.isGoThrough = true;
     this.color = "#69d2ff";
+    document.querySelector('.go-through').classList.add('active-power');
     setTimeout(() => {
       this.isGoThrough = false;
       this.color = this.defaultColor;
+      document.querySelector('.go-through').classList.remove('active-power');
     }, 3000);
   }
 
@@ -82,9 +88,11 @@ class Ball {
     if (this.strength >= 3) return;
     this.strength += 2;
     this.color = "#ea69ff";
+    document.querySelector('.power-ball').classList.add('active-power');
     setTimeout(() => {
       this.strength = 1;
       this.color = this.defaultColor;
+      document.querySelector('.power-ball').classList.remove('active-power');
     }, 5000);
   }
 
@@ -92,9 +100,11 @@ class Ball {
     if (false) return;
     this.ySpeed = this.ySpeed < 0 ? -10 : 10;
     this.color = "#ff8a00";
+    document.querySelector('.fast-ball').classList.add('active-power');
     setTimeout(() => {
       this.ySpeed = this.ySpeed < 0 ? -8 : 8;
       this.color = this.defaultColor;
+      document.querySelector('.fast-ball').classList.remove('active-power');
     }, 4000);
   }
 
@@ -102,9 +112,11 @@ class Ball {
     if (false) return;
     this.ySpeed = this.ySpeed < 0 ? -6 : 6;
     this.color = "#67dc65";
+    document.querySelector('.slow-ball').classList.add('active-power');
     setTimeout(() => {
       this.ySpeed = this.ySpeed < 0 ? -8 : 8;
       this.color = this.defaultColor;
+      document.querySelector('.slow-ball').classList.remove('active-power');
     }, 4000);
   }
 }
