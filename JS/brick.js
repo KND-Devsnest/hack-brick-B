@@ -20,7 +20,7 @@ class Brick {
       if (powerCount[currentLevel] > 0 && Math.random() - 0.5 > 0) {
         //Provide   a powerUp
         --powerCount[currentLevel];
-        console.log(x, y);
+        //console.log(x, y);
         return powerUps[Math.floor(Math.random() * 4)];
       }
       // Else return

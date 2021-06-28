@@ -133,7 +133,7 @@ function draw(evt) {
   }
 
   ball.render(ctx);
-  paddle.render(pos, ctx);
+  paddle.render(pos, ctx, canvasBoundRect.width);
   ball.changeDirection(paddle);
 
   for (let i in powerUpBalls) {
@@ -149,6 +149,7 @@ function draw(evt) {
 
 canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX - canvasBoundRect.x;
+  
 });
 
 function drawBricks(current_level) {

@@ -38,10 +38,11 @@ class Ball {
     }
 
     if (
-      this.x + this.radius >= pos - Math.floor(paddle.width / 2) &&
-      this.x - this.radius <= pos + Math.floor(paddle.width / 2) &&
+      this.x + this.radius >= paddle.x &&
+      this.x - this.radius <= paddle.x + paddle.width &&
       this.y + this.radius >= paddle.y &&
-      this.y + this.radius <= paddle.y + paddle.height
+      this.y + this.radius <= paddle.y + paddle.height && 
+      this.ySpeed > 0
     ) {
       playPaddleHit();
       if (this.powerUp == "paddleIncrease") {
