@@ -19,7 +19,6 @@ console.log(bricks);
 let totalBricks = bricks.length;
 
 let totalScore = 0;
-
 setTimeout(() => {
   playBackroundMusic();
 }, 200);
