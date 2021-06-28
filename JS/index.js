@@ -31,7 +31,7 @@ let x,
   ],
   paddle_ball_color = [
     null,
-    "red",
+    "white",
     "white",
     "white",
     "white",
@@ -40,12 +40,12 @@ let x,
   ],
   paddle_color = [null, "black", "black", "white", "white", "white", "white"],
   powerUpBallColors = {
-    paddleIncrease: "pink",
-    paddleDecrease: "purple",
-    goThrough: "blue",
-    powerBall: "grey",
-    fastBall: "red",
-    slowBall: "yellow",
+    paddleIncrease: "#ea6262",
+    paddleDecrease: "#f3d361",
+    goThrough: "#69d2ff",
+    powerBall: "#ea69ff",
+    fastBall: "#ff8a00",
+    slowBall: "#67dc65",
   };
 initialize();
 
