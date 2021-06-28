@@ -32,7 +32,9 @@ let x,
     "white",
     "white",
   ],
-  paddle_color = [null, "black", "black", "white", "white", "white", "white"];
+  paddle_color = [null, "black", "black", "white", "white", "white", "white"],
+  powerUpBallColors = {"paddleIncrease":"pink", "paddleDecrease": "purple", "goThrough" : "blue", "powerBall": "grey", "fastBall": "red", "slowBall": "yellow"};
+  ;
 initialize();
 
 function initialize() {
@@ -114,7 +116,7 @@ function draw(evt) {
             powerUpBalls.push(
               new Ball(
                 10,
-                "blue",
+                powerUpBallColors[bricks[i].powerType],
                 bricks[i].x + Math.floor(bricks[i].width / 2),
                 bricks[i].y + bricks[i].height,
                 bricks[i].powerType,

@@ -56,6 +56,12 @@ class Ball {
       } else if (this.powerUp == "powerBall") {
         mainBall.increaseStrength();
         return true;
+      } else if (this.powerUp == "fastBall"){
+        mainBall.increaseSpeed();
+        return true;
+      }else if (this.powerUp == "slowBall"){
+        mainBall.decreaseSpeed();
+        return true;
       }
       this.ySpeed = -this.ySpeed;
     }
@@ -64,7 +70,7 @@ class Ball {
   becomeGoThrough() {
     if (this.isGoThrough) return;
     this.isGoThrough = true;
-    this.color = "red";
+    this.color = "blue";
     setTimeout(() => {
       this.isGoThrough = false;
       this.color = this.defaultColor;
@@ -79,5 +85,25 @@ class Ball {
       this.strength = 1;
       this.color = this.defaultColor;
     }, 5000);
+  }
+
+  increaseSpeed(){
+    if (false) return;
+    this.ySpeed = this.ySpeed < 0 ? -10 : 10;
+    this.color = "red"
+    setTimeout(() => {
+      this.ySpeed = this.ySpeed < 0 ? -8 : 8;
+      this.color = this.defaultColor;
+    }, 4000)
+  }
+
+  decreaseSpeed(){
+    if (false) return;
+    this.ySpeed = this.ySpeed < 0 ? -6 : 6;
+    this.color = "yellow"
+    setTimeout(() => {
+      this.ySpeed = this.ySpeed < 0 ? -8 : 8;
+      this.color = this.defaultColor;
+    }, 4000)
   }
 }
