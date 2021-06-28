@@ -16,6 +16,8 @@ let x,
   game,
   gameWonDiv,
   nextLvlBttn,
+  gameOverDiv,
+  retryBttn,
   backgroundImages = [
     null,
     "url('images/levels/lvl-1.jpg')",
@@ -53,6 +55,8 @@ function initialize() {
   canvas = document.getElementById("main"); //reference to canvas
   gameWonDiv = document.querySelector('.game-won-wrapper');
   nextLvlBttn = document.getElementById('next-lvl-btn');
+  gameOverDiv = document.querySelector('.game-over-wrapper');
+  retryBttn = document.getElementById('retry-btn');
   ctx = canvas.getContext("2d");
   currentLevels = 6;
   //current_level = window.localStorage.getItem("current_level");
@@ -60,7 +64,6 @@ function initialize() {
   if( isNaN(current_level) || current_level < 1 || current_level > currentLevels){
     current_level = 1;
   }
-  console.log(current_level);
   current_level = current_level == null ? 1 : Number(current_level);
 
   paddle = new Paddle(150, 15, 10, ctx, canvas, paddle_color[current_level]);
@@ -76,9 +79,9 @@ function initialize() {
   canvas.style.backgroundSize = "cover";
   canvas.style.backgroundRepeat = "no-repeat";
   totalScore = 0;
-  setTimeout(() => {
-    playBackroundMusic();
-  }, 200);
+  // setTimeout(() => {
+  //   playBackroundMusic();
+  // }, 200);
 
   function startGame() {
     game = setInterval(() => {
@@ -97,16 +100,15 @@ function draw(evt) {
 
   if (totalBricks == 0 || gameStatus === "Game Over") {
     pauseBackgroundMusic();
+    document.getElementById('ttl-score').innerHTML = totalScore;
     if (totalBricks == 0) {
-      console.log(totalScore);
-      document.getElementById('ttl-score').innerHTML = totalScore;
       window.localStorage.setItem("current_level", String(current_level + 1));
-      window.localStorage.getItem("current_level");
       nextLvlBttn.href = ++current_level > 6 ? "./index.html?game_won" : "./home.html?" + current_level;
       gameWonDiv.style.display = "block";
       playLevelComplete();
     } else {
       playLevelFail();
+      gameOverDiv.style.display = "block";
     }
     clearInterval(game);
     ctx.font = "48px sans-serif";
