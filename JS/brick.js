@@ -38,7 +38,9 @@ class Brick {
     // bg.onload = function () {
 
     // };
-    this.ctx.fillStyle = `rgba(${this.color.r},${this.color.g},${this.color.b},${this.hit/this.MAXHITS})`;
+    this.ctx.fillStyle = `rgba(${this.color.r},${this.color.g},${
+      this.color.b
+    },${this.hit / this.MAXHITS})`;
     this.ctx.strokeStyle = "black";
     this.ctx.lineWidth = 0;
     this.ctx.stroke();
@@ -69,21 +71,21 @@ class Brick {
 
 const brickTypes = {
   wood: {
-    color: {r:193, g:154, b: 108},
+    color: { r: 193, g: 154, b: 108 },
     score: 1,
     hits: 1,
     src: "./images/texture/wood_1.png",
     soundFx: "./sounds/gameSounds/woodBrickHit.wav"
   },
   rock: {
-    color: {r:173, g:35, b: 54},
+    color: { r: 173, g: 35, b: 54 },
     score: 2,
     hits: 3,
     src: "./images/texture/stone_1.jpg",
     soundFx: "./sounds/gameSounds/rockBrickHit1.wav"
   },
   iron: {
-    color: {r:192, g:192, b: 192},
+    color: { r: 192, g: 192, b: 192 },
     score: 3,
     hits: 4,
     src: "./images/texture/iron_1.png",
