@@ -80,8 +80,8 @@ function initialize() {
   gameStatus = "Playing";
   powerUpBalls = [];
   canvasBoundRect = canvas.getBoundingClientRect();
-  totalBricks = 2;
-  //totalBricks = bricks.length;
+  //totalBricks = 2;
+  totalBricks = bricks.length;
   canvas.style.background = backgroundImages[current_level];
   canvas.style.backgroundSize = "cover";
   canvas.style.backgroundRepeat = "no-repeat";
