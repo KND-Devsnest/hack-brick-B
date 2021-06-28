@@ -53,11 +53,15 @@ To win the game, all the BRICKS must be eliminated.
 #### Feature :      
   * Power-ups tab :-
      
-     <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Power-ups.PNG" width=50% ><center>
+     <center><img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Power-ups.PNG" width="500" height="250"/ ><center>
   
   * Highscore tab :-
      
-    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Game-over.PNG" width="100" height="80" />
+    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Highscore.PNG" width="500" height="250" />
+  
+  * Sequential selector :-
+     
+    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Level-select.PNG" width=50% />     
        
   * ###### And more click to play !!!! :- https://knd-devsnest.github.io/hack-brick-B/   
     
