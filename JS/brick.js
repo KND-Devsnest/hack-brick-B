@@ -14,6 +14,7 @@ class Brick {
     this.score = brickTypes[type]["score"];
     this.color = brickTypes[type]["color"];
     this.src = brickTypes[type]["src"];
+    this.soundFx = brickTypes[type]['soundFx']
     this.powerType = (function () {
       if (powerCount > 0 && Math.random() - 0.5 > 0) {
         //Provide   a powerUp
@@ -52,6 +53,7 @@ class Brick {
       ball.x - ball.radius <= this.x + this.width //(right)
     ) {
       this.hit -= ball.strength;
+      playBrickHit(this.soundFx);
       if (ball.isGoThrough) return ["no change", 0];
       if (ball.y - ball.radius >= this.y + this.height - 20)
         return ["down", this.hit];
@@ -69,17 +71,20 @@ const brickTypes = {
     score: 1,
     hits: 1,
     src: "./images/texture/wood_1.png",
+    soundFx: "./sounds/gameSounds/woodBrickHit.wav"
   },
   rock: {
     color: {r:173, g:35, b: 54},
     score: 2,
     hits: 3,
     src: "./images/texture/stone_1.jpg",
+    soundFx: "./sounds/gameSounds/rockBrickHit1.wav"
   },
   iron: {
     color: {r:192, g:192, b: 192},
     score: 3,
     hits: 4,
     src: "./images/texture/iron_1.png",
+    soundFx: "./sounds/gameSounds/ironBrickHit.wav"
   },
 };
