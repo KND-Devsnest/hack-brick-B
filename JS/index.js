@@ -35,8 +35,14 @@ let x,
     "white",
   ],
   paddle_color = [null, "black", "black", "white", "white", "white", "white"],
-  powerUpBallColors = {"paddleIncrease":"pink", "paddleDecrease": "purple", "goThrough" : "blue", "powerBall": "grey", "fastBall": "red", "slowBall": "yellow"};
-  ;
+  powerUpBallColors = {
+    paddleIncrease: "pink",
+    paddleDecrease: "purple",
+    goThrough: "blue",
+    powerBall: "grey",
+    fastBall: "red",
+    slowBall: "yellow",
+  };
 initialize();
 
 function initialize() {
@@ -67,7 +73,8 @@ function initialize() {
   totalBricks = 2;
   //totalBricks = bricks.length;
   canvas.style.background = backgroundImages[current_level];
-  canvas.style.backgroundSize = "500px 500px";
+  canvas.style.backgroundSize = "cover";
+  canvas.style.backgroundRepeat = "no-repeat";
   totalScore = 0;
   setTimeout(() => {
     playBackroundMusic();
@@ -161,7 +168,6 @@ function draw(evt) {
 
 canvas.addEventListener("mousemove", (e) => {
   pos = e.clientX - canvasBoundRect.x;
-  
 });
 
 function drawBricks(current_level) {
