@@ -59,7 +59,7 @@ To win the game, all the BRICKS must be eliminated.
   
   * Highscore tab :-
      
-    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Highscore.PNG" width="35%" height="15%" />
+    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Highscore.PNG" width=30% height=20% />
   
   * Sequential selector :-
      
