@@ -29,11 +29,11 @@ class Ball {
 
   changeDirection(paddle, mainBall) {
     //change ball direction when it hits a wall or the paddle.
-    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+    if ((this.x + this.radius > canvas.width && this.xSpeed > 0) || (this.x - this.radius < 0 && this.xSpeed < 0)) {
       this.xSpeed = -this.xSpeed;
     }
 
-    if (this.y - this.radius < 0) {
+    if (this.y - this.radius < 0 && this.ySpeed < 0) {
       this.ySpeed = -this.ySpeed;
     }
 
