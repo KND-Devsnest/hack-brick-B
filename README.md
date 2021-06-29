@@ -63,7 +63,7 @@ To win the game, all the BRICKS must be eliminated.
   
   * Sequential selector :-
      
-    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Level-select.PNG" width=25%  height="25%" />     
+    <img  src="https://github.com/KND-Devsnest/hack-brick-B/blob/master/images/Readme/Level-select.PNG" width=40% height=50% />     
        
   <a name="link" /> 
        
